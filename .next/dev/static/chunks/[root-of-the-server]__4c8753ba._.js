@@ -711,11 +711,100 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
-"[project]/src/data/cases.ts [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/src/data/cases.ts [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
 
-const e = new Error("Could not parse module '[project]/src/data/cases.ts'\n\nExpected ',', got 'date'");
-e.code = 'MODULE_UNPARSABLE';
-throw e;
+// Metadata for all cases - used for listings and navigation
+// Full content is in /content/cases/*.md files
+__turbopack_context__.s([
+    "cases",
+    ()=>cases,
+    "getAllTags",
+    ()=>getAllTags,
+    "getCaseBySlug",
+    ()=>getCaseBySlug,
+    "getCases",
+    ()=>getCases,
+    "getCasesByTag",
+    ()=>getCasesByTag,
+    "getFields",
+    ()=>getFields
+]);
+const cases = [
+    {
+        slug: "test-case",
+        title: "Testing If This Works",
+        verdict: "elegant",
+        tags: [
+            "Test",
+            "Demo"
+        ],
+        field: "Test",
+        date: "2025-11-02",
+        summary: "A simple test to see if everything is working."
+    },
+    {
+        slug: "microwave-regen",
+        title: "Microwave-Assisted Regeneration of Activated Carbon",
+        verdict: "elegant",
+        tags: [
+            "Environmental Engineering",
+            "Energy"
+        ],
+        field: "Environmental Engineering",
+        date: "2025-01-10",
+        summary: "Technically works. Practically... no one will do this.",
+        paperLink: "https://doi.org/example"
+    },
+    {
+        slug: "graphs-persuasion",
+        title: "Trivial Graphs & Formulas Make Ads More Persuasive",
+        verdict: "nice-demo",
+        tags: [
+            "Communication",
+            "Psychology"
+        ],
+        field: "Psychology",
+        date: "2025-01-08",
+        summary: "Peer-reviewed proof that people trust sciencey-looking things.",
+        paperLink: "https://doi.org/example-graphs"
+    },
+    {
+        slug: "ml-candle",
+        title: "Machine Learning Predicts Candle Burn Rate",
+        verdict: "over-engineered",
+        tags: [
+            "Data Science",
+            "Machine Learning"
+        ],
+        field: "Machine Learning",
+        date: "2025-01-05",
+        summary: "AI rediscovers linear regression, claims victory over candles.",
+        paperLink: "https://doi.org/example-ml-candle"
+    }
+];
+function getCases() {
+    return cases;
+}
+function getFields() {
+    const fieldSet = new Set();
+    cases.forEach((c)=>fieldSet.add(c.field));
+    return Array.from(fieldSet).sort();
+}
+function getCaseBySlug(slug) {
+    return cases.find((c)=>c.slug === slug);
+}
+function getCasesByTag(tag) {
+    return cases.filter((c)=>c.tags.includes(tag));
+}
+function getAllTags() {
+    const tagSet = new Set();
+    cases.forEach((c)=>c.tags.forEach((t)=>tagSet.add(t)));
+    return Array.from(tagSet).sort();
+}
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
 }),
 "[project]/src/pages/cases/index.tsx [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";

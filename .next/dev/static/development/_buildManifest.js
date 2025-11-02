@@ -11,6 +11,9 @@ self.__BUILD_MANIFEST = {
   "/cases/[slug]": [
     "static/chunks/pages/cases/[slug].js"
   ],
+  "/manifesto": [
+    "static/chunks/pages/manifesto.js"
+  ],
   "__rewrites": {
     "afterFiles": [],
     "beforeFiles": [],
