@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev -p 5173",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "npx serve out"
   },
   "keywords": [],
