@@ -1,8 +1,8 @@
-[00:00:00.576] Server  LOG      ✓ Ready in 380ms
-[00:00:07.456] Server  WARN     ⚠ Cross origin request detected from 192.168.2.127 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:00.532] Server  LOG      ✓ Ready in 350ms
+[00:00:07.151] Server  WARN     ⚠ Cross origin request detected from 192.168.2.127 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:21.589] Browser ERROR   {"code":"MODULE_UNPARSABLE"}
-[00:00:21.589] Browser ERROR   ./src/data/cases.ts:25:3
+[00:00:12.045] Browser ERROR   {"code":"MODULE_UNPARSABLE"}
+[00:00:12.045] Browser ERROR   ./src/data/cases.ts:25:3
 Parsing ecmascript source code failed
   23 |   tags: ["Test", "Demo"],
   24 |   field: "Test"
@@ -22,10 +22,10 @@ Import traces:
   SSR:
     ./src/data/cases.ts
     ./src/pages/cases/index.tsx
-[00:00:21.589] Browser ERROR   unhandledRejection: Error: Could not parse module '[project]/src/data/cases.ts'
+[00:00:12.045] Browser ERROR   unhandledRejection: Error: Could not parse module '[project]/src/data/cases.ts'
 
 Expected ',', got 'date'
-[00:00:21.589] Browser ERROR   ./src/data/cases.ts:25:3
+[00:00:12.045] Browser ERROR   ./src/data/cases.ts:25:3
 Parsing ecmascript source code failed
   23 |   tags: ["Test", "Demo"],
   24 |   field: "Test"
@@ -45,49 +45,7 @@ Import traces:
   SSR:
     ./src/data/cases.ts
     ./src/pages/cases/index.tsx
-[00:00:36.520] Browser ERROR   uncaughtError: Error: ./src/data/cases.ts:25:3
-Parsing ecmascript source code failed
-  23 |   tags: ["Test", "Demo"],
-  24 |   field: "Test"
-> 25 |   date: "2025-11-02",
-     |   ^^^^
-  26 |   summary: "A simple test to see if everything is working.",
-  27 |   },
-  28 |   {
-
-Expected ',', got 'date'
-
-Import traces:
-  Browser:
-    ./src/data/cases.ts
-    ./src/pages/cases/index.tsx
-
-  SSR:
-    ./src/data/cases.ts
-    ./src/pages/cases/index.tsx
-
-
-[00:00:36.664] Browser ERROR   ./src/data/cases.ts:25:3
-Parsing ecmascript source code failed
-  23 |   tags: ["Test", "Demo"],
-  24 |   field: "Test"
-> 25 |   date: "2025-11-02",
-     |   ^^^^
-  26 |   summary: "A simple test to see if everything is working.",
-  27 |   },
-  28 |   {
-
-Expected ',', got 'date'
-
-Import traces:
-  Browser:
-    ./src/data/cases.ts
-    ./src/pages/cases/index.tsx
-
-  SSR:
-    ./src/data/cases.ts
-    ./src/pages/cases/index.tsx
-[00:00:36.664] Browser ERROR   ./src/data/cases.ts:25:3
+[00:00:12.045] Browser ERROR   ./src/data/cases.ts:25:3
 Parsing ecmascript source code failed
   23 |   tags: ["Test", "Demo"],
   24 |   field: "Test"
