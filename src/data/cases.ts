@@ -6,6 +6,7 @@ export interface CaseMetadata {
   title: string;
   verdict: "genius" | "nice-demo" | "over-engineered" | "elegant";
   tags: string[];
+  field: string;
   date: string;
   summary: string;
   paperLink?: string;
@@ -17,6 +18,7 @@ export const cases: CaseMetadata[] = [
     title: "Microwave-Assisted Regeneration of Activated Carbon",
     verdict: "elegant",
     tags: ["Environmental Engineering", "Energy"],
+    field: "Environmental Engineering",
     date: "2025-01-10",
     summary: "Technically works. Practically... no one will do this.",
     paperLink: "https://doi.org/example",
@@ -26,6 +28,7 @@ export const cases: CaseMetadata[] = [
     title: "Trivial Graphs & Formulas Make Ads More Persuasive",
     verdict: "nice-demo",
     tags: ["Communication", "Psychology"],
+    field: "Psychology",
     date: "2025-01-08",
     summary: "Peer-reviewed proof that people trust sciencey-looking things.",
     paperLink: "https://doi.org/example-graphs",
@@ -35,6 +38,7 @@ export const cases: CaseMetadata[] = [
     title: "Machine Learning Predicts Candle Burn Rate",
     verdict: "over-engineered",
     tags: ["Data Science", "Machine Learning"],
+    field: "Machine Learning",
     date: "2025-01-05",
     summary: "AI rediscovers linear regression, claims victory over candles.",
     paperLink: "https://doi.org/example-ml-candle",
@@ -42,6 +46,16 @@ export const cases: CaseMetadata[] = [
 ];
 
 // Utility functions
+export function getCases(): CaseMetadata[] {
+  return cases;
+}
+
+export function getFields(): string[] {
+  const fieldSet = new Set<string>();
+  cases.forEach((c) => fieldSet.add(c.field));
+  return Array.from(fieldSet).sort();
+}
+
 export function getCaseBySlug(slug: string): CaseMetadata | undefined {
   return cases.find((c) => c.slug === slug);
 }
