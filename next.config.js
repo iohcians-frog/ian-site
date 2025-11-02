@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'export', // ✅ tells Next.js to generate static HTML for GitHub Pages
   images: { unoptimized: true },
-  trailingSlash: true
 };
+
 module.exports = nextConfig;
