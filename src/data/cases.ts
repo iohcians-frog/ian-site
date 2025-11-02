@@ -21,6 +21,7 @@ export const cases: CaseMetadata[] = [
   title: "Testing If This Works",
   verdict: "elegant",
   tags: ["Test", "Demo"],
+  field: "Test"
   date: "2025-11-02",
   summary: "A simple test to see if everything is working.",
   },
