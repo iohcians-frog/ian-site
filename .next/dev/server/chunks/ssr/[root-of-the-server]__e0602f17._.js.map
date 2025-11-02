@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/timothychoi/ian-site/src/pages/index.tsx"],"sourcesContent":["export default function Home() {\n  return (\n    <main className=\"min-h-screen px-6 py-16\">\n      <h1 className=\"text-3xl md:text-5xl font-bold\">Institute for Applied Nonsense (IAN)</h1>\n      <p className=\"mt-4 max-w-2xl text-lg\">\n        Where we make sense of the stuff that technically makes sense… but really, really doesn’t.\n      </p>\n      <p className=\"mt-6 max-w-2xl\">\n        If you see this page locally, everything works! Next step: push to GitHub and deploy to GitHub Pages.\n      </p>\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,qKAAC;QAAK,WAAU;;0BACd,qKAAC;gBAAG,WAAU;0BAAiC;;;;;;0BAC/C,qKAAC;gBAAE,WAAU;0BAAyB;;;;;;0BAGtC,qKAAC;gBAAE,WAAU;0BAAiB;;;;;;;;;;;;AAKpC","debugId":null}}]
+}

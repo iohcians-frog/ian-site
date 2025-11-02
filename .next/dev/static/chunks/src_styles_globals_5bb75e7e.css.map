@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/timothychoi/ian-site/src/styles/globals.css"],"sourcesContent":["/*! tailwindcss v4.1.16 | MIT License | https://tailwindcss.com */\n.min-h-screen {\n  min-height: 100vh;\n}\nhtml, body {\n  margin: 0;\n  padding: 0;\n}\n"],"names":[],"mappings":"AACA;;;;AAGA","debugId":null}}]
+}

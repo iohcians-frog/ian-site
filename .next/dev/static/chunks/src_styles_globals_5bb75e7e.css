@@ -1,0 +1,11 @@
+/* [project]/src/styles/globals.css [client] (css) */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=src_styles_globals_5bb75e7e.css.map*/
