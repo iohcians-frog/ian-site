@@ -12,6 +12,9 @@ export interface CaseMetadata {
   paperLink?: string;
 }
 
+// Alias for compatibility
+export type CaseFile = CaseMetadata;
+
 export const cases: CaseMetadata[] = [
   {
     slug: "microwave-regen",
