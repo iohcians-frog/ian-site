@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "604ad458b4262a185cf585192958e2e7",
-    "previewModeSigningKey": "caa01ba024fbfc6b02d3aaa13756908ae434549f1ff175fc3974bcd50e63a800",
-    "previewModeEncryptionKey": "2d85acba49f88be00097bc7b0f06bbdc20e0559ce0622b7f2682cade43a4e6ee"
-  }
-}
+{"version":4,"routes":{"/cases/_TEMPLATE":{},"/cases/graphs-persuasion":{},"/cases/microwave-regen":{},"/cases/ml-candle":{},"/cases/test-case":{}},"dynamicRoutes":{"/cases/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/cases/[slug]","routeRegex":"^\\/cases\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"bdcb5c08268cd850d4a0d32cf93c8e61","previewModeSigningKey":"387dc2e51a175667bc4f2ff8091a7e668d111a9df7bc69c93751d8af10da0967","previewModeEncryptionKey":"fd89a57d55df666067971cc582ff006261c5cfc2d240f35d1421a81a7e256168"}}
