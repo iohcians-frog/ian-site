@@ -5,7 +5,7 @@ import { CaseFile } from "@/data/cases";
 export default function CaseCard({ c }: { c: CaseFile }) {
   return (
     <Link
-      href={`/cases/${c.slug}`}
+      href={`/cases/${c.slug}/`}
       className="block rounded-2xl border p-5 hover:shadow-sm transition"
     >
       <div className="flex items-start justify-between gap-4">
