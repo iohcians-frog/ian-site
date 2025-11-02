@@ -1,0 +1,92 @@
+{
+  "version": 4,
+  "routes": {
+    "/cases/_TEMPLATE": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/cases/[slug]",
+      "dataRoute": "/_next/data/mDvBGKV-JTY1yHzMTKlZR/cases/_TEMPLATE.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/cases/graphs-persuasion": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/cases/[slug]",
+      "dataRoute": "/_next/data/mDvBGKV-JTY1yHzMTKlZR/cases/graphs-persuasion.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/cases/microwave-regen": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/cases/[slug]",
+      "dataRoute": "/_next/data/mDvBGKV-JTY1yHzMTKlZR/cases/microwave-regen.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/cases/ml-candle": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/cases/[slug]",
+      "dataRoute": "/_next/data/mDvBGKV-JTY1yHzMTKlZR/cases/ml-candle.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/cases/test-case": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/cases/[slug]",
+      "dataRoute": "/_next/data/mDvBGKV-JTY1yHzMTKlZR/cases/test-case.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {
+    "/cases/[slug]": {
+      "routeRegex": "^/cases/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/mDvBGKV-JTY1yHzMTKlZR/cases/[slug].json",
+      "fallback": false,
+      "dataRouteRegex": "^/_next/data/mDvBGKV\\-JTY1yHzMTKlZR/cases/([^/]+?)\\.json$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "a7e6d12e382bbd90883358d8f8950acb",
+    "previewModeSigningKey": "b045ddc6cdad16411bfb822d35348a8592aaa58635da67dfc1bbc363a4e571bb",
+    "previewModeEncryptionKey": "6b6b8e45d0e150df8db613c6430fe2ddf6c41e41e4832f7fd57e21f0db7e3830"
+  }
+}

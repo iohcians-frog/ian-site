@@ -1,0 +1,215 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><link rel="preload" href="/ian-site/_next/static/chunks/27cc736878d34797.css" as="style"/><link rel="stylesheet" href="/ian-site/_next/static/chunks/27cc736878d34797.css" data-n-g=""/><noscript data-n-css=""></noscript><script src="/ian-site/_next/static/chunks/79b200ebaae5049a.js" defer=""></script><script src="/ian-site/_next/static/chunks/932a1f893e9592b3.js" defer=""></script><script src="/ian-site/_next/static/chunks/6ba80d7a9ea5b667.js" defer=""></script><script src="/ian-site/_next/static/chunks/e9909661a9fb838d.js" defer=""></script><script src="/ian-site/_next/static/chunks/turbopack-309ed421c6b2a0c6.js" defer=""></script><script src="/ian-site/_next/static/chunks/f74f9584e6824c7c.js" defer=""></script><script src="/ian-site/_next/static/chunks/turbopack-e97127253e6ad309.js" defer=""></script><script src="/ian-site/_next/static/mDvBGKV-JTY1yHzMTKlZR/_ssgManifest.js" defer=""></script><script src="/ian-site/_next/static/mDvBGKV-JTY1yHzMTKlZR/_buildManifest.js" defer=""></script></head><body><link rel="preload" as="image" href="/frog.svg"/><div id="__next"><div class="min-h-screen bg-white text-black"><header class="border-b"><div class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between"><a class="font-bold tracking-tight text-xl" href="/ian-site/">IAN — Institute for Applied Nonsense</a><nav class="flex gap-5 text-sm"><a class="hover:underline" href="/ian-site/cases/">Cases</a><a class="hover:underline" href="/ian-site/manifesto/">Manifesto</a><a class="hover:underline" href="/ian-site/about/">About</a></nav></div></header><main><article class="mx-auto max-w-3xl px-6 py-12"><div class="mb-8 space-y-4"><h1 class="text-4xl font-bold leading-tight">Machine Learning Predicts Candle Burn Rate</h1><div class="flex flex-wrap items-center gap-3"><span class="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm"><span>🧰</span><span>Over-engineered</span></span><span class="rounded-full bg-neutral-50 px-3 py-1 text-sm text-slate-600">Data Science</span><span class="rounded-full bg-neutral-50 px-3 py-1 text-sm text-slate-600">Machine Learning</span></div><a href="https://doi.org/example-ml-candle" class="inline-block text-sm text-slate-600 underline hover:text-slate-800" target="_blank" rel="noopener noreferrer">📄 Read the original paper →</a></div><div class="prose prose-slate prose-lg max-w-none  prose-headings:font-semibold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:leading-relaxed prose-p:text-slate-700 prose-a:text-slate-800 prose-a:underline hover:prose-a:text-slate-600 prose-strong:text-slate-900 prose-strong:font-semibold prose-ul:my-4 prose-li:my-2 prose-hr:my-8 prose-hr:border-slate-300"><h2>The Paper</h2>
+<p>Researchers trained a <strong>neural network</strong> to predict how long a candle will burn based on its dimensions and wax composition.</p>
+<h3>The Setup</h3>
+<ul>
+<li>Collected data on 500 candles</li>
+<li>Features: height, diameter, wax type, wick size</li>
+<li>Target: burn time</li>
+<li>Solution: 3-layer neural network with dropout regularization</li>
+</ul>
+<h3>The Results</h3>
+<ul>
+<li>Prediction accuracy: 94.2%</li>
+<li>Model: 47,000 parameters</li>
+<li>Training time: 6 hours on GPU</li>
+<li><strong>Alternative method</strong>: Linear regression in 0.3 seconds with 93.8% accuracy</li>
+</ul>
+<p>Wait, what? 🤔</p>
+<hr>
+<h2>Sense ✅</h2>
+<p>Let&#39;s be fair - the methodology is solid:</p>
+<h3>What They Did Right</h3>
+<p><strong>1. Proper data collection</strong></p>
+<ul>
+<li>Measured 500 candles systematically</li>
+<li>Controlled laboratory conditions</li>
+<li>Documented all variables</li>
+<li>Validated measurements</li>
+</ul>
+<p><strong>2. Professional ML practices</strong></p>
+<ul>
+<li>Train/test split</li>
+<li>Cross-validation</li>
+<li>Hyperparameter tuning</li>
+<li>Regularization to prevent overfitting</li>
+</ul>
+<p><strong>3. Reproducible research</strong></p>
+<ul>
+<li>Code published on GitHub</li>
+<li>Dataset available</li>
+<li>Clear documentation</li>
+<li>Others can verify results</li>
+</ul>
+<p><strong>4. Honest reporting</strong>
+They <em>did</em> include the linear regression baseline. They acknowledged it worked almost as well. They didn&#39;t hide the truth.</p>
+<p>So what&#39;s the problem?</p>
+<hr>
+<h2>Nonsense 🤔</h2>
+<h3>The Elephant in the Room</h3>
+<p><strong>They built a neural network to solve a problem that is <em>literally linear</em>.</strong></p>
+<p>Candle burn time = (wax volume) / (burn rate)</p>
+<p>This is <strong>high school physics</strong>. The relationship between candle dimensions and burn time is fundamentally linear. There&#39;s no hidden complexity to discover.</p>
+<h3>The Absurdity Scale</h3>
+<p>Let&#39;s compare approaches:</p>
+<p><strong>Method 1: Common Sense</strong></p>
+<pre><code>time = height / burn_rate_per_inch
+</code></pre>
+<ul>
+<li>Accuracy: ~90%</li>
+<li>Time: 5 seconds</li>
+<li>Cost: $0</li>
+<li>Parameters: 1</li>
+</ul>
+<p><strong>Method 2: Linear Regression</strong></p>
+<pre><code class="language-python">model = LinearRegression()
+model.fit(X, y)
+</code></pre>
+<ul>
+<li>Accuracy: 93.8%</li>
+<li>Time: 0.3 seconds</li>
+<li>Cost: $0</li>
+<li>Parameters: 5</li>
+</ul>
+<p><strong>Method 3: Neural Network</strong> (what they did)</p>
+<pre><code class="language-python">model = Sequential([
+    Dense(128, activation=&#39;relu&#39;),
+    Dropout(0.3),
+    Dense(64, activation=&#39;relu&#39;),
+    Dense(1)
+])
+</code></pre>
+<ul>
+<li>Accuracy: 94.2%</li>
+<li>Time: 6 hours GPU</li>
+<li>Cost: ~$20 in compute</li>
+<li>Parameters: 47,000</li>
+</ul>
+<p><strong>They gained 0.4% accuracy at the cost of 6 hours and 47,000 parameters.</strong> 🎉</p>
+<hr>
+<h2>The Bigger Picture</h2>
+<h3>Why This Happens</h3>
+<p>This paper exists because:</p>
+<p><strong>1. &quot;Machine Learning&quot; gets grants</strong></p>
+<ul>
+<li>&quot;We&#39;ll use linear regression&quot; → Rejected</li>
+<li>&quot;We&#39;ll use deep learning&quot; → Funded</li>
+<li>Same problem, different buzzword</li>
+</ul>
+<p><strong>2. Publication bias</strong></p>
+<ul>
+<li>Journals want &quot;novel&quot; methods</li>
+<li>&quot;We used the appropriate simple solution&quot; doesn&#39;t get published</li>
+<li>&quot;We applied AI to X&quot; gets citations</li>
+</ul>
+<p><strong>3. Resume building</strong></p>
+<ul>
+<li>Junior researchers need ML papers</li>
+<li>Whether ML was <em>necessary</em> is irrelevant</li>
+<li>It&#39;s about demonstrating you can use the tools</li>
+</ul>
+<p><strong>4. The AI hype cycle</strong></p>
+<ul>
+<li>Everything must involve neural networks</li>
+<li>Even when a calculator would suffice</li>
+<li>Especially when a calculator would suffice</li>
+</ul>
+<hr>
+<h2>Lesson 📚</h2>
+<h3><strong>Complexity is Not Intelligence</strong></h3>
+<p>The smartest solution is often the simplest one.</p>
+<h3>What This Teaches Us</h3>
+<p><strong>1. Match the tool to the problem</strong></p>
+<ul>
+<li>Linear problem? Linear solution.</li>
+<li>Nonlinear problem? Maybe try nonlinear methods.</li>
+<li>Don&#39;t use a neural network because it&#39;s 2025</li>
+</ul>
+<p><strong>2. Occam&#39;s Razor still applies</strong></p>
+<ul>
+<li>Simpler models are easier to interpret</li>
+<li>Fewer parameters = less can go wrong</li>
+<li>47,000 parameters to predict candle burn time is absurd</li>
+</ul>
+<p><strong>3. The &quot;Because We Can&quot; fallacy</strong>
+Just because you <em>can</em> use deep learning doesn&#39;t mean you <em>should</em>.</p>
+<p>Example:</p>
+<ul>
+<li>❌ &quot;We trained a GAN to predict if numbers are even or odd&quot;</li>
+<li>✅ &quot;We used modulo 2&quot;</li>
+</ul>
+<p><strong>4. Incremental improvements have costs</strong>
+That 0.4% accuracy boost:</p>
+<ul>
+<li>Requires GPU</li>
+<li>Takes 6 hours</li>
+<li>Needs 47,000 parameters</li>
+<li>Can&#39;t be explained to stakeholders</li>
+<li>Breaks if you look at it wrong</li>
+</ul>
+<hr>
+<h2>Real-World Implications</h2>
+<p>This pattern appears everywhere in modern data science:</p>
+<h3>The Enterprise Version</h3>
+<p><strong>Client</strong>: &quot;We need to predict customer churn&quot;</p>
+<p><strong>Consultant A</strong>: &quot;Let&#39;s try logistic regression first&quot;
+<strong>Result</strong>: 87% accuracy, easy to explain, runs in seconds</p>
+<p><strong>Consultant B</strong>: &quot;Let&#39;s build a transformer model with attention mechanisms&quot;
+<strong>Result</strong>: 88% accuracy, impossible to explain, requires ML engineer on staff</p>
+<p><strong>Who gets hired?</strong> </p>
+<p>Consultant B. Because it&#39;s 2025 and &quot;we use AI&quot; sounds better than &quot;we use statistics.&quot;</p>
+<hr>
+<h2>The Irony</h2>
+<p>The researchers demonstrated:</p>
+<ul>
+<li>Skill with modern ML tools ✅</li>
+<li>Proper experimental design ✅</li>
+<li>Honest reporting ✅</li>
+<li><strong>Complete lack of judgment</strong> ❌</li>
+</ul>
+<h3>What They Should Have Done</h3>
+<p><strong>Title</strong>: &quot;Comparing Prediction Methods for Candle Burn Time&quot;</p>
+<p><strong>Conclusion</strong>: &quot;Linear regression is sufficient. Neural networks provide no meaningful improvement. Don&#39;t use deep learning for linear problems. Thanks for coming to our TED talk.&quot;</p>
+<p><strong>Impact</strong>: Would have saved the world from thousands of similar papers.</p>
+<p><strong>What they did instead</strong>: Contribute to the pile of &quot;AI for Everything&quot; papers that make everyone think they need neural networks to predict anything.</p>
+<hr>
+<h2>The Meta-Lesson</h2>
+<h3>AI is Amazing... When Appropriate</h3>
+<p>Neural networks have revolutionized:</p>
+<ul>
+<li>Image recognition</li>
+<li>Natural language processing</li>
+<li>Game playing</li>
+<li>Drug discovery</li>
+<li>Actually complex problems</li>
+</ul>
+<p>But using them for candle burn time prediction is like:</p>
+<ul>
+<li>Using a flamethrower to light a candle</li>
+<li>Hiring a lawyer to open a door</li>
+<li>Getting an MRI for a paper cut</li>
+</ul>
+<p><strong>Technically possible. Hilariously inappropriate.</strong></p>
+<hr>
+<h2>Why This Belongs at IAN</h2>
+<p>This paper represents <strong>peak academic overengineering</strong>:</p>
+<ul>
+<li>Methodologically sound ✅</li>
+<li>Utterly unnecessary ✅</li>
+<li>Symptom of larger problem ✅</li>
+<li>Makes us question humanity&#39;s priorities ✅</li>
+</ul>
+<p>It&#39;s the research equivalent of using a sledgehammer to hang a picture frame - sure, the nail went in, but was that really the best approach?</p>
+<p>🧰 <strong>Our verdict</strong>: Over-engineered to the point of parody.</p>
+<hr>
+<p><strong>The Real Tragedy:</strong></p>
+<p>Someone spent months on this. They could have:</p>
+<ul>
+<li>Solved an actually hard problem</li>
+<li>Discovered something new</li>
+<li>Advanced human knowledge</li>
+</ul>
+<p>Instead, they proved that neural networks can... do multiplication slowly.</p>
+<p>And that&#39;s why we&#39;re here. 🐸</p>
+<hr>
+<p><strong>Paper</strong>: <a href="https://doi.org/example-ml-candle">Read the original</a><br><strong>Field</strong>: Data Science / Machine Learning<br><strong>Published</strong>: 2024<br><strong>Our Verdict</strong>: 🧰 Over-engineered (magnificently so)</p>
+</div></article></main><footer class="mt-20 border-t"><div class="mx-auto max-w-5xl px-6 py-8 flex items-center justify-between"><div class="text-sm">Powered by curiosity, caffeine, and questionable grant proposals. 🐸</div><img src="/frog.svg" alt="frog" class="h-6 w-6 opacity-70"/></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"frontmatter":{"slug":"ml-candle","title":"Machine Learning Predicts Candle Burn Rate","verdict":"over-engineered","tags":["Data Science","Machine Learning"],"date":"2025-01-05T00:00:00.000Z","summary":"AI rediscovers linear regression, claims victory over candles.","paperLink":"https://doi.org/example-ml-candle"},"content":"\u003ch2\u003eThe Paper\u003c/h2\u003e\n\u003cp\u003eResearchers trained a \u003cstrong\u003eneural network\u003c/strong\u003e to predict how long a candle will burn based on its dimensions and wax composition.\u003c/p\u003e\n\u003ch3\u003eThe Setup\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eCollected data on 500 candles\u003c/li\u003e\n\u003cli\u003eFeatures: height, diameter, wax type, wick size\u003c/li\u003e\n\u003cli\u003eTarget: burn time\u003c/li\u003e\n\u003cli\u003eSolution: 3-layer neural network with dropout regularization\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eThe Results\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003ePrediction accuracy: 94.2%\u003c/li\u003e\n\u003cli\u003eModel: 47,000 parameters\u003c/li\u003e\n\u003cli\u003eTraining time: 6 hours on GPU\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eAlternative method\u003c/strong\u003e: Linear regression in 0.3 seconds with 93.8% accuracy\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWait, what? 🤔\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eSense ✅\u003c/h2\u003e\n\u003cp\u003eLet\u0026#39;s be fair - the methodology is solid:\u003c/p\u003e\n\u003ch3\u003eWhat They Did Right\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e1. Proper data collection\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMeasured 500 candles systematically\u003c/li\u003e\n\u003cli\u003eControlled laboratory conditions\u003c/li\u003e\n\u003cli\u003eDocumented all variables\u003c/li\u003e\n\u003cli\u003eValidated measurements\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e2. Professional ML practices\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eTrain/test split\u003c/li\u003e\n\u003cli\u003eCross-validation\u003c/li\u003e\n\u003cli\u003eHyperparameter tuning\u003c/li\u003e\n\u003cli\u003eRegularization to prevent overfitting\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e3. Reproducible research\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCode published on GitHub\u003c/li\u003e\n\u003cli\u003eDataset available\u003c/li\u003e\n\u003cli\u003eClear documentation\u003c/li\u003e\n\u003cli\u003eOthers can verify results\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e4. Honest reporting\u003c/strong\u003e\nThey \u003cem\u003edid\u003c/em\u003e include the linear regression baseline. They acknowledged it worked almost as well. They didn\u0026#39;t hide the truth.\u003c/p\u003e\n\u003cp\u003eSo what\u0026#39;s the problem?\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eNonsense 🤔\u003c/h2\u003e\n\u003ch3\u003eThe Elephant in the Room\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eThey built a neural network to solve a problem that is \u003cem\u003eliterally linear\u003c/em\u003e.\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eCandle burn time = (wax volume) / (burn rate)\u003c/p\u003e\n\u003cp\u003eThis is \u003cstrong\u003ehigh school physics\u003c/strong\u003e. The relationship between candle dimensions and burn time is fundamentally linear. There\u0026#39;s no hidden complexity to discover.\u003c/p\u003e\n\u003ch3\u003eThe Absurdity Scale\u003c/h3\u003e\n\u003cp\u003eLet\u0026#39;s compare approaches:\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eMethod 1: Common Sense\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003etime = height / burn_rate_per_inch\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eAccuracy: ~90%\u003c/li\u003e\n\u003cli\u003eTime: 5 seconds\u003c/li\u003e\n\u003cli\u003eCost: $0\u003c/li\u003e\n\u003cli\u003eParameters: 1\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eMethod 2: Linear Regression\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-python\"\u003emodel = LinearRegression()\nmodel.fit(X, y)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eAccuracy: 93.8%\u003c/li\u003e\n\u003cli\u003eTime: 0.3 seconds\u003c/li\u003e\n\u003cli\u003eCost: $0\u003c/li\u003e\n\u003cli\u003eParameters: 5\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eMethod 3: Neural Network\u003c/strong\u003e (what they did)\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-python\"\u003emodel = Sequential([\n    Dense(128, activation=\u0026#39;relu\u0026#39;),\n    Dropout(0.3),\n    Dense(64, activation=\u0026#39;relu\u0026#39;),\n    Dense(1)\n])\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eAccuracy: 94.2%\u003c/li\u003e\n\u003cli\u003eTime: 6 hours GPU\u003c/li\u003e\n\u003cli\u003eCost: ~$20 in compute\u003c/li\u003e\n\u003cli\u003eParameters: 47,000\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eThey gained 0.4% accuracy at the cost of 6 hours and 47,000 parameters.\u003c/strong\u003e 🎉\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eThe Bigger Picture\u003c/h2\u003e\n\u003ch3\u003eWhy This Happens\u003c/h3\u003e\n\u003cp\u003eThis paper exists because:\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003e1. \u0026quot;Machine Learning\u0026quot; gets grants\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u0026quot;We\u0026#39;ll use linear regression\u0026quot; → Rejected\u003c/li\u003e\n\u003cli\u003e\u0026quot;We\u0026#39;ll use deep learning\u0026quot; → Funded\u003c/li\u003e\n\u003cli\u003eSame problem, different buzzword\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e2. Publication bias\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eJournals want \u0026quot;novel\u0026quot; methods\u003c/li\u003e\n\u003cli\u003e\u0026quot;We used the appropriate simple solution\u0026quot; doesn\u0026#39;t get published\u003c/li\u003e\n\u003cli\u003e\u0026quot;We applied AI to X\u0026quot; gets citations\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e3. Resume building\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eJunior researchers need ML papers\u003c/li\u003e\n\u003cli\u003eWhether ML was \u003cem\u003enecessary\u003c/em\u003e is irrelevant\u003c/li\u003e\n\u003cli\u003eIt\u0026#39;s about demonstrating you can use the tools\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e4. The AI hype cycle\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eEverything must involve neural networks\u003c/li\u003e\n\u003cli\u003eEven when a calculator would suffice\u003c/li\u003e\n\u003cli\u003eEspecially when a calculator would suffice\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2\u003eLesson 📚\u003c/h2\u003e\n\u003ch3\u003e\u003cstrong\u003eComplexity is Not Intelligence\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eThe smartest solution is often the simplest one.\u003c/p\u003e\n\u003ch3\u003eWhat This Teaches Us\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e1. Match the tool to the problem\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eLinear problem? Linear solution.\u003c/li\u003e\n\u003cli\u003eNonlinear problem? Maybe try nonlinear methods.\u003c/li\u003e\n\u003cli\u003eDon\u0026#39;t use a neural network because it\u0026#39;s 2025\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e2. Occam\u0026#39;s Razor still applies\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSimpler models are easier to interpret\u003c/li\u003e\n\u003cli\u003eFewer parameters = less can go wrong\u003c/li\u003e\n\u003cli\u003e47,000 parameters to predict candle burn time is absurd\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e3. The \u0026quot;Because We Can\u0026quot; fallacy\u003c/strong\u003e\nJust because you \u003cem\u003ecan\u003c/em\u003e use deep learning doesn\u0026#39;t mean you \u003cem\u003eshould\u003c/em\u003e.\u003c/p\u003e\n\u003cp\u003eExample:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e❌ \u0026quot;We trained a GAN to predict if numbers are even or odd\u0026quot;\u003c/li\u003e\n\u003cli\u003e✅ \u0026quot;We used modulo 2\u0026quot;\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e4. Incremental improvements have costs\u003c/strong\u003e\nThat 0.4% accuracy boost:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eRequires GPU\u003c/li\u003e\n\u003cli\u003eTakes 6 hours\u003c/li\u003e\n\u003cli\u003eNeeds 47,000 parameters\u003c/li\u003e\n\u003cli\u003eCan\u0026#39;t be explained to stakeholders\u003c/li\u003e\n\u003cli\u003eBreaks if you look at it wrong\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch2\u003eReal-World Implications\u003c/h2\u003e\n\u003cp\u003eThis pattern appears everywhere in modern data science:\u003c/p\u003e\n\u003ch3\u003eThe Enterprise Version\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eClient\u003c/strong\u003e: \u0026quot;We need to predict customer churn\u0026quot;\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eConsultant A\u003c/strong\u003e: \u0026quot;Let\u0026#39;s try logistic regression first\u0026quot;\n\u003cstrong\u003eResult\u003c/strong\u003e: 87% accuracy, easy to explain, runs in seconds\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eConsultant B\u003c/strong\u003e: \u0026quot;Let\u0026#39;s build a transformer model with attention mechanisms\u0026quot;\n\u003cstrong\u003eResult\u003c/strong\u003e: 88% accuracy, impossible to explain, requires ML engineer on staff\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWho gets hired?\u003c/strong\u003e \u003c/p\u003e\n\u003cp\u003eConsultant B. Because it\u0026#39;s 2025 and \u0026quot;we use AI\u0026quot; sounds better than \u0026quot;we use statistics.\u0026quot;\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eThe Irony\u003c/h2\u003e\n\u003cp\u003eThe researchers demonstrated:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSkill with modern ML tools ✅\u003c/li\u003e\n\u003cli\u003eProper experimental design ✅\u003c/li\u003e\n\u003cli\u003eHonest reporting ✅\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eComplete lack of judgment\u003c/strong\u003e ❌\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eWhat They Should Have Done\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eTitle\u003c/strong\u003e: \u0026quot;Comparing Prediction Methods for Candle Burn Time\u0026quot;\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eConclusion\u003c/strong\u003e: \u0026quot;Linear regression is sufficient. Neural networks provide no meaningful improvement. Don\u0026#39;t use deep learning for linear problems. Thanks for coming to our TED talk.\u0026quot;\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eImpact\u003c/strong\u003e: Would have saved the world from thousands of similar papers.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eWhat they did instead\u003c/strong\u003e: Contribute to the pile of \u0026quot;AI for Everything\u0026quot; papers that make everyone think they need neural networks to predict anything.\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eThe Meta-Lesson\u003c/h2\u003e\n\u003ch3\u003eAI is Amazing... When Appropriate\u003c/h3\u003e\n\u003cp\u003eNeural networks have revolutionized:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eImage recognition\u003c/li\u003e\n\u003cli\u003eNatural language processing\u003c/li\u003e\n\u003cli\u003eGame playing\u003c/li\u003e\n\u003cli\u003eDrug discovery\u003c/li\u003e\n\u003cli\u003eActually complex problems\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eBut using them for candle burn time prediction is like:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eUsing a flamethrower to light a candle\u003c/li\u003e\n\u003cli\u003eHiring a lawyer to open a door\u003c/li\u003e\n\u003cli\u003eGetting an MRI for a paper cut\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eTechnically possible. Hilariously inappropriate.\u003c/strong\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003eWhy This Belongs at IAN\u003c/h2\u003e\n\u003cp\u003eThis paper represents \u003cstrong\u003epeak academic overengineering\u003c/strong\u003e:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMethodologically sound ✅\u003c/li\u003e\n\u003cli\u003eUtterly unnecessary ✅\u003c/li\u003e\n\u003cli\u003eSymptom of larger problem ✅\u003c/li\u003e\n\u003cli\u003eMakes us question humanity\u0026#39;s priorities ✅\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eIt\u0026#39;s the research equivalent of using a sledgehammer to hang a picture frame - sure, the nail went in, but was that really the best approach?\u003c/p\u003e\n\u003cp\u003e🧰 \u003cstrong\u003eOur verdict\u003c/strong\u003e: Over-engineered to the point of parody.\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003eThe Real Tragedy:\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eSomeone spent months on this. They could have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSolved an actually hard problem\u003c/li\u003e\n\u003cli\u003eDiscovered something new\u003c/li\u003e\n\u003cli\u003eAdvanced human knowledge\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eInstead, they proved that neural networks can... do multiplication slowly.\u003c/p\u003e\n\u003cp\u003eAnd that\u0026#39;s why we\u0026#39;re here. 🐸\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cstrong\u003ePaper\u003c/strong\u003e: \u003ca href=\"https://doi.org/example-ml-candle\"\u003eRead the original\u003c/a\u003e\u003cbr\u003e\u003cstrong\u003eField\u003c/strong\u003e: Data Science / Machine Learning\u003cbr\u003e\u003cstrong\u003ePublished\u003c/strong\u003e: 2024\u003cbr\u003e\u003cstrong\u003eOur Verdict\u003c/strong\u003e: 🧰 Over-engineered (magnificently so)\u003c/p\u003e\n"},"__N_SSG":true},"page":"/cases/[slug]","query":{"slug":"ml-candle"},"buildId":"mDvBGKV-JTY1yHzMTKlZR","assetPrefix":"/ian-site","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
