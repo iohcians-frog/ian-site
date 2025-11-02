@@ -1,14 +1,12 @@
 {
   "name": "ian-site",
   "version": "1.0.0",
-  "description": "Institute for Applied Nonsense (IAN) website",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "next dev -p 5173",
     "build": "next build",
-    "export": "next export",
-    "start": "npx serve out",
-    "deploy": "npm run build && npm run export"
+    "start": "npx serve out"
   },
   "keywords": [],
   "author": "",
