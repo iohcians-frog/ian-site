@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -40,6 +41,9 @@ function CaseCard({
 }
 
 export default function Home() {
+  const router = useRouter();
+  const basePath = router.basePath;
+
   return (
     <main className="min-h-screen bg-white">
       {/* header */}
@@ -67,12 +71,12 @@ export default function Home() {
 
         <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-700">
           We make sense of the stuff that technically makes sense… but really,
-          really doesn’t.
+          really doesn't.
         </p>
         <p className="mt-3 max-w-4xl text-slate-700">
           We collect real, peer-reviewed studies that are methodologically solid
           and almost pointless in practice. Each case explains why it made
-          sense, why it didn’t, and what it teaches. If it’s scientifically
+          sense, why it didn't, and what it teaches. If it's scientifically
           valid but existentially void, it belongs here.
         </p>
       </header>
@@ -122,8 +126,8 @@ export default function Home() {
         </ul>
 
         <p className="mt-4 text-slate-700 italic">
-          Validity isn’t value. Significance isn’t significance.
-          Peer review isn’t peer understanding.
+          Validity isn't value. Significance isn't significance.
+          Peer review isn't peer understanding.
         </p>
       </section>
 
@@ -133,7 +137,7 @@ export default function Home() {
           <p>
             Powered by curiosity, caffeine, and questionable grant proposals. 🐸
           </p>
-          <img src="/frog.svg" alt="frog" className="h-6 w-6 opacity-70" />
+          <img src={`${basePath}/frog.svg`} alt="frog" className="h-6 w-6 opacity-70" />
         </div>
       </footer>
     </main>
