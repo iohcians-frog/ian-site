@@ -4,7 +4,7 @@
     "/serious/tylenol-pregnancy": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/serious/[slug]",
-      "dataRoute": "/_next/data/8KJu960z9ibLBYQEmzrAg/serious/tylenol-pregnancy.json",
+      "dataRoute": "/_next/data/MHWpOuaf3p3APXQTZfp37/serious/tylenol-pregnancy.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -17,7 +17,7 @@
     "/cases/graphs-persuasion": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/8KJu960z9ibLBYQEmzrAg/cases/graphs-persuasion.json",
+      "dataRoute": "/_next/data/MHWpOuaf3p3APXQTZfp37/cases/graphs-persuasion.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -30,7 +30,7 @@
     "/cases/microwave-regen": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/8KJu960z9ibLBYQEmzrAg/cases/microwave-regen.json",
+      "dataRoute": "/_next/data/MHWpOuaf3p3APXQTZfp37/cases/microwave-regen.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -43,7 +43,7 @@
     "/cases/ml-candle": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/8KJu960z9ibLBYQEmzrAg/cases/ml-candle.json",
+      "dataRoute": "/_next/data/MHWpOuaf3p3APXQTZfp37/cases/ml-candle.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -56,7 +56,7 @@
     "/cases/test-case": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/8KJu960z9ibLBYQEmzrAg/cases/test-case.json",
+      "dataRoute": "/_next/data/MHWpOuaf3p3APXQTZfp37/cases/test-case.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -70,9 +70,9 @@
   "dynamicRoutes": {
     "/serious/[slug]": {
       "routeRegex": "^/serious/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/8KJu960z9ibLBYQEmzrAg/serious/[slug].json",
+      "dataRoute": "/_next/data/MHWpOuaf3p3APXQTZfp37/serious/[slug].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/8KJu960z9ibLBYQEmzrAg/serious/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/MHWpOuaf3p3APXQTZfp37/serious/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -84,9 +84,9 @@
     },
     "/cases/[slug]": {
       "routeRegex": "^/cases/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/8KJu960z9ibLBYQEmzrAg/cases/[slug].json",
+      "dataRoute": "/_next/data/MHWpOuaf3p3APXQTZfp37/cases/[slug].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/8KJu960z9ibLBYQEmzrAg/cases/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/MHWpOuaf3p3APXQTZfp37/cases/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
