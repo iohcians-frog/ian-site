@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Logo + Title */}
           <Link href="/" className="flex items-center gap-3">
             <img
-              src="/logo.png"
+              src="public/logo.png"
               alt="IAN Logo"
               className="h-8 w-8 object-contain opacity-90 hover:opacity-100 transition"
             />
@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="text-sm text-slate-600">
             Powered by curiosity, caffeine, and questionable grant proposals. 🐸
           </div>
-          <img src="/frog.svg" alt="frog" className="h-6 w-6 opacity-70" />
+          <img src="public/frog.svg" alt="frog" className="h-6 w-6 opacity-70" />
         </div>
       </footer>
     </div>

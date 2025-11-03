@@ -1,10 +1,10 @@
 globalThis.__BUILD_MANIFEST = {
   "pages": {
     "/": [
-      "static/chunks/73d4da872ab51143.js",
+      "static/chunks/164e95f593bb2930.js",
       "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-8c8ceedc41414006.js"
+      "static/chunks/turbopack-554024f7a03e7f1b.js"
     ],
     "/_app": [
       "static/chunks/79b200ebaae5049a.js",
@@ -20,40 +20,40 @@ globalThis.__BUILD_MANIFEST = {
       "static/chunks/turbopack-dca43c6e62d6ab1a.js"
     ],
     "/about": [
-      "static/chunks/7da9b245830b93a4.js",
+      "static/chunks/8b4be4d40be4d6e8.js",
       "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-e2e8905ec13693cb.js"
+      "static/chunks/turbopack-d941b1cb35826871.js"
     ],
     "/cases": [
-      "static/chunks/b17714062dada636.js",
+      "static/chunks/ab5cb381601a2fd8.js",
       "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-8bdd17682ba9f18d.js"
+      "static/chunks/turbopack-191a64edb836e77e.js"
     ],
     "/cases/[slug]": [
-      "static/chunks/aa73e7ae770f9b8c.js",
+      "static/chunks/30deb3d8506c1247.js",
       "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-6c0dc10288fcc26e.js"
+      "static/chunks/turbopack-b81b63f2f49b46b1.js"
     ],
     "/manifesto": [
-      "static/chunks/b19e0877c2aeb11f.js",
+      "static/chunks/6f96f8a29ae437a8.js",
       "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-e03ab64b1f925773.js"
+      "static/chunks/turbopack-bf46427b29001591.js"
     ],
     "/serious": [
-      "static/chunks/2cf4142d2b5e12d2.js",
+      "static/chunks/9e47db2e48885e02.js",
       "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-f31b44e7e349029c.js"
+      "static/chunks/turbopack-89bfb3e108575d50.js"
     ],
     "/serious/[slug]": [
-      "static/chunks/ebbb464d7effffc0.js",
+      "static/chunks/a42efbbc04d0d79b.js",
       "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-cd7c7713995eebe4.js"
+      "static/chunks/turbopack-72df48e7b087c916.js"
     ]
   },
   "devFiles": [],

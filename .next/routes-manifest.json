@@ -104,16 +104,16 @@
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/MHWpOuaf3p3APXQTZfp37/cases/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/MHWpOuaf3p3APXQTZfp37/cases/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/96jV1XY4xpDqBtO2mcOwg/cases/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/96jV1XY4xpDqBtO2mcOwg/cases/(?<nxtPslug>[^/]+?)\\.json$"
     },
     {
       "page": "/serious/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/MHWpOuaf3p3APXQTZfp37/serious/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/MHWpOuaf3p3APXQTZfp37/serious/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/96jV1XY4xpDqBtO2mcOwg/serious/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/96jV1XY4xpDqBtO2mcOwg/serious/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
