@@ -10,7 +10,7 @@ export default function Cases() {
 
   const filtered = useMemo(() => {
     if (field === "All") return all;
-    return all.filter(c => c.field === field);
+    return all.filter((c) => c.field === field);
   }, [field, all]);
 
   return (
@@ -26,13 +26,17 @@ export default function Cases() {
               className="border rounded-md px-2 py-1"
             >
               <option>All</option>
-              {fields.map(f => <option key={f}>{f}</option>)}
+              {fields.map((f) => (
+                <option key={f}>{f}</option>
+              ))}
             </select>
           </div>
         </div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {filtered.map(c => <CaseCard key={c.slug} c={c} />)}
+          {filtered.map((c) => (
+            <CaseCard key={c.slug} item={c} basePath="/cases" />
+          ))}
         </div>
       </section>
     </Layout>

@@ -6,11 +6,10 @@
   "rootMainFiles": [],
   "pages": {
     "/manifesto": [
-      "static/chunks/9c024dd3cd60d196.js",
+      "static/chunks/b19e0877c2aeb11f.js",
+      "static/chunks/807ea5e9e376ef36.js",
       "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/e9909661a9fb838d.js",
-      "static/chunks/6ba80d7a9ea5b667.js",
-      "static/chunks/turbopack-4a471c6b5a39a578.js"
+      "static/chunks/turbopack-e03ab64b1f925773.js"
     ]
   },
   "ampFirstPages": []

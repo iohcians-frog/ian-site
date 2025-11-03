@@ -1,0 +1,5 @@
+{
+  "/serious/[slug]": [
+    "static/chunks/pages/serious/[slug].js"
+  ]
+}

@@ -1,0 +1,1040 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[turbopack]/browser/dev/hmr-client/hmr-client.ts [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+/// <reference path="../../../shared/runtime-types.d.ts" />
+/// <reference path="../../runtime/base/dev-globals.d.ts" />
+/// <reference path="../../runtime/base/dev-protocol.d.ts" />
+/// <reference path="../../runtime/base/dev-extensions.ts" />
+__turbopack_context__.s([
+    "connect",
+    ()=>connect,
+    "setHooks",
+    ()=>setHooks,
+    "subscribeToUpdate",
+    ()=>subscribeToUpdate
+]);
+function connect({ addMessageListener, sendMessage, onUpdateError = console.error }) {
+    addMessageListener((msg)=>{
+        switch(msg.type){
+            case 'turbopack-connected':
+                handleSocketConnected(sendMessage);
+                break;
+            default:
+                try {
+                    if (Array.isArray(msg.data)) {
+                        for(let i = 0; i < msg.data.length; i++){
+                            handleSocketMessage(msg.data[i]);
+                        }
+                    } else {
+                        handleSocketMessage(msg.data);
+                    }
+                    applyAggregatedUpdates();
+                } catch (e) {
+                    console.warn('[Fast Refresh] performing full reload\n\n' + "Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.\n" + 'You might have a file which exports a React component but also exports a value that is imported by a non-React component file.\n' + 'Consider migrating the non-React component export to a separate file and importing it into both files.\n\n' + 'It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.\n' + 'Fast Refresh requires at least one parent function component in your React tree.');
+                    onUpdateError(e);
+                    location.reload();
+                }
+                break;
+        }
+    });
+    const queued = globalThis.TURBOPACK_CHUNK_UPDATE_LISTENERS;
+    if (queued != null && !Array.isArray(queued)) {
+        throw new Error('A separate HMR handler was already registered');
+    }
+    globalThis.TURBOPACK_CHUNK_UPDATE_LISTENERS = {
+        push: ([chunkPath, callback])=>{
+            subscribeToChunkUpdate(chunkPath, sendMessage, callback);
+        }
+    };
+    if (Array.isArray(queued)) {
+        for (const [chunkPath, callback] of queued){
+            subscribeToChunkUpdate(chunkPath, sendMessage, callback);
+        }
+    }
+}
+const updateCallbackSets = new Map();
+function sendJSON(sendMessage, message) {
+    sendMessage(JSON.stringify(message));
+}
+function resourceKey(resource) {
+    return JSON.stringify({
+        path: resource.path,
+        headers: resource.headers || null
+    });
+}
+function subscribeToUpdates(sendMessage, resource) {
+    sendJSON(sendMessage, {
+        type: 'turbopack-subscribe',
+        ...resource
+    });
+    return ()=>{
+        sendJSON(sendMessage, {
+            type: 'turbopack-unsubscribe',
+            ...resource
+        });
+    };
+}
+function handleSocketConnected(sendMessage) {
+    for (const key of updateCallbackSets.keys()){
+        subscribeToUpdates(sendMessage, JSON.parse(key));
+    }
+}
+// we aggregate all pending updates until the issues are resolved
+const chunkListsWithPendingUpdates = new Map();
+function aggregateUpdates(msg) {
+    const key = resourceKey(msg.resource);
+    let aggregated = chunkListsWithPendingUpdates.get(key);
+    if (aggregated) {
+        aggregated.instruction = mergeChunkListUpdates(aggregated.instruction, msg.instruction);
+    } else {
+        chunkListsWithPendingUpdates.set(key, msg);
+    }
+}
+function applyAggregatedUpdates() {
+    if (chunkListsWithPendingUpdates.size === 0) return;
+    hooks.beforeRefresh();
+    for (const msg of chunkListsWithPendingUpdates.values()){
+        triggerUpdate(msg);
+    }
+    chunkListsWithPendingUpdates.clear();
+    finalizeUpdate();
+}
+function mergeChunkListUpdates(updateA, updateB) {
+    let chunks;
+    if (updateA.chunks != null) {
+        if (updateB.chunks == null) {
+            chunks = updateA.chunks;
+        } else {
+            chunks = mergeChunkListChunks(updateA.chunks, updateB.chunks);
+        }
+    } else if (updateB.chunks != null) {
+        chunks = updateB.chunks;
+    }
+    let merged;
+    if (updateA.merged != null) {
+        if (updateB.merged == null) {
+            merged = updateA.merged;
+        } else {
+            // Since `merged` is an array of updates, we need to merge them all into
+            // one, consistent update.
+            // Since there can only be `EcmascriptMergeUpdates` in the array, there is
+            // no need to key on the `type` field.
+            let update = updateA.merged[0];
+            for(let i = 1; i < updateA.merged.length; i++){
+                update = mergeChunkListEcmascriptMergedUpdates(update, updateA.merged[i]);
+            }
+            for(let i = 0; i < updateB.merged.length; i++){
+                update = mergeChunkListEcmascriptMergedUpdates(update, updateB.merged[i]);
+            }
+            merged = [
+                update
+            ];
+        }
+    } else if (updateB.merged != null) {
+        merged = updateB.merged;
+    }
+    return {
+        type: 'ChunkListUpdate',
+        chunks,
+        merged
+    };
+}
+function mergeChunkListChunks(chunksA, chunksB) {
+    const chunks = {};
+    for (const [chunkPath, chunkUpdateA] of Object.entries(chunksA)){
+        const chunkUpdateB = chunksB[chunkPath];
+        if (chunkUpdateB != null) {
+            const mergedUpdate = mergeChunkUpdates(chunkUpdateA, chunkUpdateB);
+            if (mergedUpdate != null) {
+                chunks[chunkPath] = mergedUpdate;
+            }
+        } else {
+            chunks[chunkPath] = chunkUpdateA;
+        }
+    }
+    for (const [chunkPath, chunkUpdateB] of Object.entries(chunksB)){
+        if (chunks[chunkPath] == null) {
+            chunks[chunkPath] = chunkUpdateB;
+        }
+    }
+    return chunks;
+}
+function mergeChunkUpdates(updateA, updateB) {
+    if (updateA.type === 'added' && updateB.type === 'deleted' || updateA.type === 'deleted' && updateB.type === 'added') {
+        return undefined;
+    }
+    if (updateA.type === 'partial') {
+        invariant(updateA.instruction, 'Partial updates are unsupported');
+    }
+    if (updateB.type === 'partial') {
+        invariant(updateB.instruction, 'Partial updates are unsupported');
+    }
+    return undefined;
+}
+function mergeChunkListEcmascriptMergedUpdates(mergedA, mergedB) {
+    const entries = mergeEcmascriptChunkEntries(mergedA.entries, mergedB.entries);
+    const chunks = mergeEcmascriptChunksUpdates(mergedA.chunks, mergedB.chunks);
+    return {
+        type: 'EcmascriptMergedUpdate',
+        entries,
+        chunks
+    };
+}
+function mergeEcmascriptChunkEntries(entriesA, entriesB) {
+    return {
+        ...entriesA,
+        ...entriesB
+    };
+}
+function mergeEcmascriptChunksUpdates(chunksA, chunksB) {
+    if (chunksA == null) {
+        return chunksB;
+    }
+    if (chunksB == null) {
+        return chunksA;
+    }
+    const chunks = {};
+    for (const [chunkPath, chunkUpdateA] of Object.entries(chunksA)){
+        const chunkUpdateB = chunksB[chunkPath];
+        if (chunkUpdateB != null) {
+            const mergedUpdate = mergeEcmascriptChunkUpdates(chunkUpdateA, chunkUpdateB);
+            if (mergedUpdate != null) {
+                chunks[chunkPath] = mergedUpdate;
+            }
+        } else {
+            chunks[chunkPath] = chunkUpdateA;
+        }
+    }
+    for (const [chunkPath, chunkUpdateB] of Object.entries(chunksB)){
+        if (chunks[chunkPath] == null) {
+            chunks[chunkPath] = chunkUpdateB;
+        }
+    }
+    if (Object.keys(chunks).length === 0) {
+        return undefined;
+    }
+    return chunks;
+}
+function mergeEcmascriptChunkUpdates(updateA, updateB) {
+    if (updateA.type === 'added' && updateB.type === 'deleted') {
+        // These two completely cancel each other out.
+        return undefined;
+    }
+    if (updateA.type === 'deleted' && updateB.type === 'added') {
+        const added = [];
+        const deleted = [];
+        const deletedModules = new Set(updateA.modules ?? []);
+        const addedModules = new Set(updateB.modules ?? []);
+        for (const moduleId of addedModules){
+            if (!deletedModules.has(moduleId)) {
+                added.push(moduleId);
+            }
+        }
+        for (const moduleId of deletedModules){
+            if (!addedModules.has(moduleId)) {
+                deleted.push(moduleId);
+            }
+        }
+        if (added.length === 0 && deleted.length === 0) {
+            return undefined;
+        }
+        return {
+            type: 'partial',
+            added,
+            deleted
+        };
+    }
+    if (updateA.type === 'partial' && updateB.type === 'partial') {
+        const added = new Set([
+            ...updateA.added ?? [],
+            ...updateB.added ?? []
+        ]);
+        const deleted = new Set([
+            ...updateA.deleted ?? [],
+            ...updateB.deleted ?? []
+        ]);
+        if (updateB.added != null) {
+            for (const moduleId of updateB.added){
+                deleted.delete(moduleId);
+            }
+        }
+        if (updateB.deleted != null) {
+            for (const moduleId of updateB.deleted){
+                added.delete(moduleId);
+            }
+        }
+        return {
+            type: 'partial',
+            added: [
+                ...added
+            ],
+            deleted: [
+                ...deleted
+            ]
+        };
+    }
+    if (updateA.type === 'added' && updateB.type === 'partial') {
+        const modules = new Set([
+            ...updateA.modules ?? [],
+            ...updateB.added ?? []
+        ]);
+        for (const moduleId of updateB.deleted ?? []){
+            modules.delete(moduleId);
+        }
+        return {
+            type: 'added',
+            modules: [
+                ...modules
+            ]
+        };
+    }
+    if (updateA.type === 'partial' && updateB.type === 'deleted') {
+        // We could eagerly return `updateB` here, but this would potentially be
+        // incorrect if `updateA` has added modules.
+        const modules = new Set(updateB.modules ?? []);
+        if (updateA.added != null) {
+            for (const moduleId of updateA.added){
+                modules.delete(moduleId);
+            }
+        }
+        return {
+            type: 'deleted',
+            modules: [
+                ...modules
+            ]
+        };
+    }
+    // Any other update combination is invalid.
+    return undefined;
+}
+function invariant(_, message) {
+    throw new Error(`Invariant: ${message}`);
+}
+const CRITICAL = [
+    'bug',
+    'error',
+    'fatal'
+];
+function compareByList(list, a, b) {
+    const aI = list.indexOf(a) + 1 || list.length;
+    const bI = list.indexOf(b) + 1 || list.length;
+    return aI - bI;
+}
+const chunksWithIssues = new Map();
+function emitIssues() {
+    const issues = [];
+    const deduplicationSet = new Set();
+    for (const [_, chunkIssues] of chunksWithIssues){
+        for (const chunkIssue of chunkIssues){
+            if (deduplicationSet.has(chunkIssue.formatted)) continue;
+            issues.push(chunkIssue);
+            deduplicationSet.add(chunkIssue.formatted);
+        }
+    }
+    sortIssues(issues);
+    hooks.issues(issues);
+}
+function handleIssues(msg) {
+    const key = resourceKey(msg.resource);
+    let hasCriticalIssues = false;
+    for (const issue of msg.issues){
+        if (CRITICAL.includes(issue.severity)) {
+            hasCriticalIssues = true;
+        }
+    }
+    if (msg.issues.length > 0) {
+        chunksWithIssues.set(key, msg.issues);
+    } else if (chunksWithIssues.has(key)) {
+        chunksWithIssues.delete(key);
+    }
+    emitIssues();
+    return hasCriticalIssues;
+}
+const SEVERITY_ORDER = [
+    'bug',
+    'fatal',
+    'error',
+    'warning',
+    'info',
+    'log'
+];
+const CATEGORY_ORDER = [
+    'parse',
+    'resolve',
+    'code generation',
+    'rendering',
+    'typescript',
+    'other'
+];
+function sortIssues(issues) {
+    issues.sort((a, b)=>{
+        const first = compareByList(SEVERITY_ORDER, a.severity, b.severity);
+        if (first !== 0) return first;
+        return compareByList(CATEGORY_ORDER, a.category, b.category);
+    });
+}
+const hooks = {
+    beforeRefresh: ()=>{},
+    refresh: ()=>{},
+    buildOk: ()=>{},
+    issues: (_issues)=>{}
+};
+function setHooks(newHooks) {
+    Object.assign(hooks, newHooks);
+}
+function handleSocketMessage(msg) {
+    sortIssues(msg.issues);
+    handleIssues(msg);
+    switch(msg.type){
+        case 'issues':
+            break;
+        case 'partial':
+            // aggregate updates
+            aggregateUpdates(msg);
+            break;
+        default:
+            // run single update
+            const runHooks = chunkListsWithPendingUpdates.size === 0;
+            if (runHooks) hooks.beforeRefresh();
+            triggerUpdate(msg);
+            if (runHooks) finalizeUpdate();
+            break;
+    }
+}
+function finalizeUpdate() {
+    hooks.refresh();
+    hooks.buildOk();
+    // This is used by the Next.js integration test suite to notify it when HMR
+    // updates have been completed.
+    // TODO: Only run this in test environments (gate by `process.env.__NEXT_TEST_MODE`)
+    if (globalThis.__NEXT_HMR_CB) {
+        globalThis.__NEXT_HMR_CB();
+        globalThis.__NEXT_HMR_CB = null;
+    }
+}
+function subscribeToChunkUpdate(chunkListPath, sendMessage, callback) {
+    return subscribeToUpdate({
+        path: chunkListPath
+    }, sendMessage, callback);
+}
+function subscribeToUpdate(resource, sendMessage, callback) {
+    const key = resourceKey(resource);
+    let callbackSet;
+    const existingCallbackSet = updateCallbackSets.get(key);
+    if (!existingCallbackSet) {
+        callbackSet = {
+            callbacks: new Set([
+                callback
+            ]),
+            unsubscribe: subscribeToUpdates(sendMessage, resource)
+        };
+        updateCallbackSets.set(key, callbackSet);
+    } else {
+        existingCallbackSet.callbacks.add(callback);
+        callbackSet = existingCallbackSet;
+    }
+    return ()=>{
+        callbackSet.callbacks.delete(callback);
+        if (callbackSet.callbacks.size === 0) {
+            callbackSet.unsubscribe();
+            updateCallbackSets.delete(key);
+        }
+    };
+}
+function triggerUpdate(msg) {
+    const key = resourceKey(msg.resource);
+    const callbackSet = updateCallbackSets.get(key);
+    if (!callbackSet) {
+        return;
+    }
+    for (const callback of callbackSet.callbacks){
+        callback(msg);
+    }
+    if (msg.type === 'notFound') {
+        // This indicates that the resource which we subscribed to either does not exist or
+        // has been deleted. In either case, we should clear all update callbacks, so if a
+        // new subscription is created for the same resource, it will send a new "subscribe"
+        // message to the server.
+        // No need to send an "unsubscribe" message to the server, it will have already
+        // dropped the update stream before sending the "notFound" message.
+        updateCallbackSets.delete(key);
+    }
+}
+}),
+"[project]/src/components/Layout.tsx [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Layout
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+;
+;
+function Layout({ children }) {
+    _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const basePath = router.basePath || "";
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "min-h-screen bg-white",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+                className: "mx-auto max-w-5xl px-5 py-6",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex items-center justify-between",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                            href: "/",
+                            className: "flex items-center gap-2 text-sm text-slate-600 hover:underline",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: "/logo.png",
+                                    alt: "IAN Logo",
+                                    className: "h-6 w-6 object-contain opacity-80 hover:opacity-100 transition"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 19,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    children: "IAN — Institute for Applied Nonsense"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 24,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/Layout.tsx",
+                            lineNumber: 15,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                            className: "space-x-5 text-sm",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    className: "hover:underline",
+                                    href: "/cases",
+                                    children: "Cases"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 29,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    className: "hover:underline",
+                                    href: "/serious",
+                                    children: "Serious"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 30,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    className: "hover:underline",
+                                    href: "/manifesto",
+                                    children: "Manifesto"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 31,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    className: "hover:underline",
+                                    href: "/about",
+                                    children: "About"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 32,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/Layout.tsx",
+                            lineNumber: 28,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/Layout.tsx",
+                    lineNumber: 13,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/components/Layout.tsx",
+                lineNumber: 12,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+                children: children
+            }, void 0, false, {
+                fileName: "[project]/src/components/Layout.tsx",
+                lineNumber: 38,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
+                className: "border-t",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mx-auto flex max-w-5xl items-center justify-between px-5 py-6 text-sm text-slate-600",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            children: "Powered by curiosity, caffeine, and questionable grant proposals. 🐸"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Layout.tsx",
+                            lineNumber: 43,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: `${basePath}/frog.svg`,
+                            alt: "frog",
+                            className: "h-6 w-6 opacity-70"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/Layout.tsx",
+                            lineNumber: 44,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/Layout.tsx",
+                    lineNumber: 42,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/components/Layout.tsx",
+                lineNumber: 41,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/Layout.tsx",
+        lineNumber: 10,
+        columnNumber: 5
+    }, this);
+}
+_s(Layout, "fN7XvhJ+p5oE6+Xlo0NJmXpxjC8=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
+_c = Layout;
+var _c;
+__turbopack_context__.k.register(_c, "Layout");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/src/components/VerdictBadge.tsx [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+// src/components/VerdictBadge.tsx
+__turbopack_context__.s([
+    "default",
+    ()=>VerdictBadge
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+;
+const STYLE = {
+    genius: "bg-white border border-neutral-200 text-neutral-800",
+    "nice-demo": "bg-white border border-neutral-200 text-neutral-800",
+    "over-engineered": "bg-white border border-neutral-200 text-neutral-800",
+    elegant: "bg-white border border-neutral-200 text-neutral-800",
+    "calm-down": "bg-white border border-neutral-200 text-neutral-800",
+    caution: "bg-white border border-neutral-200 text-neutral-800",
+    "red-flag": "bg-white border border-neutral-200 text-neutral-800",
+    overhyped: "bg-white border border-neutral-200 text-neutral-800"
+};
+function VerdictBadge({ verdict }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+        className: `inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs sm:text-sm font-medium whitespace-nowrap ${STYLE[verdict]}`,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                children: emojiFor(verdict)
+            }, void 0, false, {
+                fileName: "[project]/src/components/VerdictBadge.tsx",
+                lineNumber: 28,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                children: labelize(verdict)
+            }, void 0, false, {
+                fileName: "[project]/src/components/VerdictBadge.tsx",
+                lineNumber: 29,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/VerdictBadge.tsx",
+        lineNumber: 25,
+        columnNumber: 5
+    }, this);
+}
+_c = VerdictBadge;
+function emojiFor(v) {
+    return ({
+        genius: "🧠",
+        "nice-demo": "🪄",
+        "over-engineered": "🧰",
+        elegant: "🧪",
+        "calm-down": "🧊",
+        caution: "⚠️",
+        "red-flag": "🚩",
+        overhyped: "🎈"
+    })[v] ?? "🔬";
+}
+function labelize(v) {
+    return ({
+        genius: "Genius curiosity",
+        "nice-demo": "Nice demo",
+        "over-engineered": "Over-engineered",
+        elegant: "Elegant nonsense",
+        "calm-down": "Calm down",
+        caution: "Caution",
+        "red-flag": "Red flag",
+        overhyped: "Overhyped"
+    })[v] ?? v;
+}
+var _c;
+__turbopack_context__.k.register(_c, "VerdictBadge");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/src/components/CaseCard.tsx [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+// src/components/CaseCard.tsx
+__turbopack_context__.s([
+    "default",
+    ()=>CaseCard
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$VerdictBadge$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/VerdictBadge.tsx [client] (ecmascript)");
+;
+;
+;
+function CaseCard({ item, basePath = "/cases" }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+        href: `${basePath}/${item.slug}/`,
+        className: "block rounded-2xl border bg-white p-5 hover:shadow-sm transition",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-start justify-between gap-4",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                        className: "font-semibold leading-snug flex-1 min-w-0",
+                        children: item.title
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/CaseCard.tsx",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "shrink-0",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$VerdictBadge$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                            verdict: item.verdict
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/CaseCard.tsx",
+                            lineNumber: 29,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/CaseCard.tsx",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/components/CaseCard.tsx",
+                lineNumber: 24,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: "mt-2 text-sm text-neutral-700",
+                children: item.field
+            }, void 0, false, {
+                fileName: "[project]/src/components/CaseCard.tsx",
+                lineNumber: 32,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: "mt-3 text-sm",
+                children: item.summary
+            }, void 0, false, {
+                fileName: "[project]/src/components/CaseCard.tsx",
+                lineNumber: 33,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/CaseCard.tsx",
+        lineNumber: 20,
+        columnNumber: 5
+    }, this);
+}
+_c = CaseCard;
+var _c;
+__turbopack_context__.k.register(_c, "CaseCard");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/src/data/cases.ts [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+// Metadata for all cases - used for listings and navigation
+// Full content is in /content/cases/*.md files
+__turbopack_context__.s([
+    "cases",
+    ()=>cases,
+    "getAllTags",
+    ()=>getAllTags,
+    "getCaseBySlug",
+    ()=>getCaseBySlug,
+    "getCases",
+    ()=>getCases,
+    "getCasesByTag",
+    ()=>getCasesByTag,
+    "getFields",
+    ()=>getFields
+]);
+const cases = [
+    {
+        slug: "test-case",
+        title: "Testing If This Works",
+        verdict: "elegant",
+        tags: [
+            "Test",
+            "Demo"
+        ],
+        field: "Test",
+        date: "2025-11-02",
+        summary: "A simple test to see if everything is working."
+    },
+    {
+        slug: "microwave-regen",
+        title: "Microwave-Assisted Regeneration of Activated Carbon",
+        verdict: "elegant",
+        tags: [
+            "Environmental Engineering",
+            "Energy"
+        ],
+        field: "Environmental Engineering",
+        date: "2025-01-10",
+        summary: "Technically works. Practically... no one will do this.",
+        paperLink: "https://doi.org/example"
+    },
+    {
+        slug: "graphs-persuasion",
+        title: "Trivial Graphs & Formulas Make Ads More Persuasive",
+        verdict: "nice-demo",
+        tags: [
+            "Communication",
+            "Psychology"
+        ],
+        field: "Psychology",
+        date: "2025-01-08",
+        summary: "Peer-reviewed proof that people trust sciencey-looking things.",
+        paperLink: "https://doi.org/example-graphs"
+    },
+    {
+        slug: "ml-candle",
+        title: "Machine Learning Predicts Candle Burn Rate",
+        verdict: "over-engineered",
+        tags: [
+            "Data Science",
+            "Machine Learning"
+        ],
+        field: "Machine Learning",
+        date: "2025-01-05",
+        summary: "AI rediscovers linear regression, claims victory over candles.",
+        paperLink: "https://doi.org/example-ml-candle"
+    }
+];
+function getCases() {
+    return cases;
+}
+function getFields() {
+    const fieldSet = new Set();
+    cases.forEach((c)=>fieldSet.add(c.field));
+    return Array.from(fieldSet).sort();
+}
+function getCaseBySlug(slug) {
+    return cases.find((c)=>c.slug === slug);
+}
+function getCasesByTag(tag) {
+    return cases.filter((c)=>c.tags.includes(tag));
+}
+function getAllTags() {
+    const tagSet = new Set();
+    cases.forEach((c)=>c.tags.forEach((t)=>tagSet.add(t)));
+    return Array.from(tagSet).sort();
+}
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[project]/src/pages/cases/index.tsx [client] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Cases
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/index.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/Layout.tsx [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$CaseCard$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/CaseCard.tsx [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$cases$2e$ts__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/cases.ts [client] (ecmascript)");
+;
+var _s = __turbopack_context__.k.signature();
+;
+;
+;
+;
+function Cases() {
+    _s();
+    const all = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$cases$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["getCases"])();
+    const fields = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$cases$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["getFields"])();
+    const [field, setField] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("All");
+    const filtered = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useMemo"])({
+        "Cases.useMemo[filtered]": ()=>{
+            if (field === "All") return all;
+            return all.filter({
+                "Cases.useMemo[filtered]": (c)=>c.field === field
+            }["Cases.useMemo[filtered]"]);
+        }
+    }["Cases.useMemo[filtered]"], [
+        field,
+        all
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Layout$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+            className: "mx-auto max-w-5xl px-6 py-12",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex items-end justify-between gap-6",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                            className: "text-2xl md:text-3xl font-bold",
+                            children: "Case Files"
+                        }, void 0, false, {
+                            fileName: "[project]/src/pages/cases/index.tsx",
+                            lineNumber: 20,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "text-sm",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    className: "mr-2",
+                                    children: "Field:"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/pages/cases/index.tsx",
+                                    lineNumber: 22,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                    value: field,
+                                    onChange: (e)=>setField(e.target.value),
+                                    className: "border rounded-md px-2 py-1",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                            children: "All"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/cases/index.tsx",
+                                            lineNumber: 28,
+                                            columnNumber: 15
+                                        }, this),
+                                        fields.map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                children: f
+                                            }, f, false, {
+                                                fileName: "[project]/src/pages/cases/index.tsx",
+                                                lineNumber: 30,
+                                                columnNumber: 17
+                                            }, this))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/pages/cases/index.tsx",
+                                    lineNumber: 23,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/pages/cases/index.tsx",
+                            lineNumber: 21,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/pages/cases/index.tsx",
+                    lineNumber: 19,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mt-8 grid gap-6 md:grid-cols-2",
+                    children: filtered.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$CaseCard$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                            item: c,
+                            basePath: "/cases"
+                        }, c.slug, false, {
+                            fileName: "[project]/src/pages/cases/index.tsx",
+                            lineNumber: 38,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/cases/index.tsx",
+                    lineNumber: 36,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/pages/cases/index.tsx",
+            lineNumber: 18,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/pages/cases/index.tsx",
+        lineNumber: 17,
+        columnNumber: 5
+    }, this);
+}
+_s(Cases, "6kljnmysiyn0ZmOq+Irstl5QdmI=");
+_c = Cases;
+var _c;
+__turbopack_context__.k.register(_c, "Cases");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
+}
+}),
+"[next]/entry/page-loader.ts { PAGE => \"[project]/src/pages/cases/index.tsx [client] (ecmascript)\" } [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+const PAGE_PATH = "/cases";
+(window.__NEXT_P = window.__NEXT_P || []).push([
+    PAGE_PATH,
+    ()=>{
+        return __turbopack_context__.r("[project]/src/pages/cases/index.tsx [client] (ecmascript)");
+    }
+]);
+// @ts-expect-error module.hot exists
+if (module.hot) {
+    // @ts-expect-error module.hot exists
+    module.hot.dispose(function() {
+        window.__NEXT_P.push([
+            PAGE_PATH
+        ]);
+    });
+}
+}),
+"[hmr-entry]/hmr-entry.js { ENTRY => \"[project]/src/pages/cases/index.tsx\" }", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.r("[next]/entry/page-loader.ts { PAGE => \"[project]/src/pages/cases/index.tsx [client] (ecmascript)\" } [client] (ecmascript)");
+}),
+]);
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__4c8753ba._.js.map

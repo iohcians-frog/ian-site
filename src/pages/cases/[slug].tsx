@@ -1,9 +1,11 @@
+// src/pages/cases/[slug].tsx
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import Layout from "@/components/Layout";
-import { GetStaticProps, GetStaticPaths } from "next";
+import VerdictBadge from "@/components/VerdictBadge";
+import type { GetStaticProps, GetStaticPaths } from "next";
 
 interface CasePageProps {
   frontmatter: {
@@ -17,36 +19,23 @@ interface CasePageProps {
   content: string;
 }
 
-function VerdictBadge({ verdict }: { verdict: string }) {
-  const verdictMap: Record<string, { emoji: string; text: string }> = {
-    "genius": { emoji: "🧠", text: "Genius curiosity" },
-    "nice-demo": { emoji: "🪄", text: "Nice demo" },
-    "over-engineered": { emoji: "🧰", text: "Over-engineered" },
-    "elegant": { emoji: "🧪", text: "Elegant nonsense" },
-  };
-
-  const v = verdictMap[verdict] || verdictMap["elegant"];
-
-  return (
-    <span className="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-sm">
-      <span>{v.emoji}</span>
-      <span>{v.text}</span>
-    </span>
-  );
-}
-
 export default function CasePage({ frontmatter, content }: CasePageProps) {
   return (
     <Layout>
-      <article className="mx-auto max-w-3xl px-6 py-12">
+      {/* white “card” container to match list/serious look */}
+      <article className="mx-auto my-12 max-w-3xl rounded-2xl border bg-white p-8 shadow-sm">
         {/* Header */}
-        <div className="mb-8 space-y-4">
+        <div className="mb-6 space-y-4">
           <h1 className="text-4xl font-bold leading-tight">{frontmatter.title}</h1>
-          
+
           <div className="flex flex-wrap items-center gap-3">
-            <VerdictBadge verdict={frontmatter.verdict} />
-            {frontmatter.tags.map((tag) => (
-              <span key={tag} className="rounded-full bg-neutral-50 px-3 py-1 text-sm text-slate-600">
+            {/* shared pill with emoji */}
+            <VerdictBadge verdict={frontmatter.verdict as any} />
+            {frontmatter.tags?.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border px-3 py-1 text-sm text-slate-700"
+              >
                 {tag}
               </span>
             ))}
@@ -55,7 +44,7 @@ export default function CasePage({ frontmatter, content }: CasePageProps) {
           {frontmatter.paperLink && (
             <a
               href={frontmatter.paperLink}
-              className="inline-block text-sm text-slate-600 underline hover:text-slate-800"
+              className="inline-block text-sm text-slate-700 underline hover:text-slate-900"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -64,14 +53,13 @@ export default function CasePage({ frontmatter, content }: CasePageProps) {
           )}
         </div>
 
-        {/* Markdown content with Tailwind Typography */}
+        {/* Markdown content */}
         <div
-          className="prose prose-slate prose-lg max-w-none 
-                     prose-headings:font-semibold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
-                     prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
-                     prose-p:leading-relaxed prose-p:text-slate-700
-                     prose-a:text-slate-800 prose-a:underline hover:prose-a:text-slate-600
-                     prose-strong:text-slate-900 prose-strong:font-semibold
+          className="prose prose-slate prose-lg max-w-none
+                     prose-headings:font-semibold prose-h2:mt-8 prose-h2:mb-4
+                     prose-h3:mt-6 prose-h3:mb-3
+                     prose-p:leading-relaxed
+                     prose-a:underline hover:prose-a:text-slate-600
                      prose-ul:my-4 prose-li:my-2
                      prose-hr:my-8 prose-hr:border-slate-300"
           dangerouslySetInnerHTML={{ __html: content }}
@@ -81,19 +69,20 @@ export default function CasePage({ frontmatter, content }: CasePageProps) {
   );
 }
 
+/* ---------- SSG ---------- */
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const casesDir = path.join(process.cwd(), "content/cases");
-  
-  // Check if directory exists
   if (!fs.existsSync(casesDir)) {
     return { paths: [], fallback: false };
   }
 
   const filenames = fs.readdirSync(casesDir);
   const paths = filenames
-    .filter((filename) => filename.endsWith(".md"))
-    .map((filename) => ({
-      params: { slug: filename.replace(".md", "") },
+    .filter((f) => (f.endsWith(".md") || f.endsWith(".mdx")))
+    .filter((f) => !f.startsWith("_")) // skip templates like _TEMPLATE.md
+    .map((f) => ({
+      params: { slug: f.replace(/\.mdx?$/, "") },
     }));
 
   return { paths, fallback: false };
@@ -101,22 +90,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
-  const filePath = path.join(process.cwd(), "content/cases", `${slug}.md`);
+  const base = path.join(process.cwd(), "content/cases");
+  const candidates = [path.join(base, `${slug}.md`), path.join(base, `${slug}.mdx`)];
 
-  if (!fs.existsSync(filePath)) {
-    return { notFound: true };
-  }
+  const filePath = candidates.find((p) => fs.existsSync(p));
+  if (!filePath) return { notFound: true };
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data: frontmatter, content: markdown } = matter(fileContent);
-  
-  // Convert markdown to HTML
+
   const content = marked(markdown);
 
-  // Ensure date is a string
   const serializedFrontmatter = {
     ...frontmatter,
-    date: typeof frontmatter.date === 'string' ? frontmatter.date : frontmatter.date?.toISOString?.() || '',
+    date:
+      typeof frontmatter.date === "string"
+        ? frontmatter.date
+        : frontmatter.date?.toISOString?.() || "",
   };
 
   return {

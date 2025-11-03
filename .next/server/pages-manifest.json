@@ -7,5 +7,7 @@
   "/cases": "pages/cases.html",
   "/cases/[slug]": "pages/cases/[slug].js",
   "/manifesto": "pages/manifesto.html",
+  "/serious": "pages/serious.html",
+  "/serious/[slug]": "pages/serious/[slug].js",
   "/404": "pages/404.html"
 }
