@@ -59,21 +59,37 @@ export default function Home() {
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
           Institute for Applied Nonsense (IAN)
         </h1>
-        <p className="mt-6 max-w-3xl text-lg text-slate-700 leading-relaxed">
-          We make sense of the stuff that technically makes sense… but really,
-          really doesn’t.
+        <p className="mt-6 max-w-3xl text-lg text-slate-700 leading-relaxed font-medium">
+          Serious Science, Not-So-Serious Language.
         </p>
-        <p className="mt-3 max-w-4xl text-slate-700">
-          We collect real, peer-reviewed studies that are methodologically solid
-          and almost pointless in practice. Each case explains why it made
-          sense, why it didn’t, and what it teaches. If it’s scientifically
-          valid but existentially void, it belongs here.
+        <p className="mt-4 max-w-4xl text-slate-700 leading-relaxed">
+          We study the kind of science that either <em>means nothing</em> or <em>means too much</em>.
+          Some papers are brilliantly useless. Others are useful but hopelessly misunderstood.
+          Either way, we read them so you don’t have to.
+        </p>
+        <p className="mt-4 max-w-4xl text-slate-700 leading-relaxed">
+          At IAN, we collect two species of research:
+        </p>
+        <ul className="mt-2 max-w-4xl text-slate-700 list-disc list-inside leading-relaxed">
+          <li>
+            <strong>Serious Research, Questionable Purpose</strong> — real, peer-reviewed studies that are methodologically solid yet existentially void.
+          </li>
+          <li>
+            <strong>Serious Science</strong> — headline-dominating research translated into plain language, minus the panic.
+          </li>
+        </ul>
+        <p className="mt-4 max-w-4xl text-slate-700 leading-relaxed">
+          Because in a world drowning in data and jargon, someone has to make nonsense make sense —
+          and sense a little less serious.
         </p>
       </section>
 
       {/* Case Files */}
       <section className="mx-auto max-w-5xl px-6 pb-4">
-        <h2 className="text-2xl font-bold mb-5">Case Files</h2>
+        <h2 className="text-2xl font-bold mb-5">Serious Research, Questionable Purpose</h2>
+        <p className="mt-4 max-w-3xl text-slate-700 leading-relaxed">
+    Every paper here meant well.
+  </p>
         <div className="grid gap-4 md:grid-cols-2">
           <CaseCard
             href="/cases/microwave-regen"
