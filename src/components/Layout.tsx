@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Navigation */}
           <nav className="flex gap-6 text-sm sm:text-base font-medium">
             <Link href="/cases" className="hover:underline">
-              Cases
+              Seriously?
             </Link>
             <Link href="/serious" className="hover:underline">
               Serious

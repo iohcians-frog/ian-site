@@ -52,7 +52,7 @@ function Layout({ children }) {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/cases",
                                     className: "hover:underline",
-                                    children: "Cases"
+                                    children: "Seriously?"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
                                     lineNumber: 23,
@@ -411,7 +411,7 @@ function Cases() {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
                             className: "text-2xl md:text-3xl font-bold",
-                            children: "Case Files"
+                            children: "Serious Research, Questionable Purpose"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/cases/index.tsx",
                             lineNumber: 20,
@@ -465,6 +465,14 @@ function Cases() {
                     lineNumber: 19,
                     columnNumber: 9
                 }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                    className: "mt-3 max-w-3xl text-slate-700",
+                    children: "Every paper here meant well."
+                }, void 0, false, {
+                    fileName: "[project]/src/pages/cases/index.tsx",
+                    lineNumber: 35,
+                    columnNumber: 5
+                }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                     className: "mt-8 grid gap-6 md:grid-cols-2",
                     children: filtered.map((c)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$CaseCard$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -472,12 +480,12 @@ function Cases() {
                             basePath: "/cases"
                         }, c.slug, false, {
                             fileName: "[project]/src/pages/cases/index.tsx",
-                            lineNumber: 38,
+                            lineNumber: 40,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/pages/cases/index.tsx",
-                    lineNumber: 36,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this)
             ]

@@ -92,3 +92,12 @@ Expression expected
 [02:26:53.160] Server  LOG      ✓ Compiled in 46ms
 [02:28:20.555] Server  LOG      ✓ Compiled in 50ms
 [02:29:40.549] Server  LOG      ✓ Compiled in 43ms
+[02:35:05.796] Server  LOG      ✓ Compiled in 46ms
+[02:35:08.733] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. Public Health
+[02:35:13.258] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. Public Health
+[02:35:33.301] Server  LOG      ✓ Compiled in 39ms
+[02:35:40.006] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. Public Health
+[02:37:30.303] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. Public Health
+[02:37:41.502] Server  LOG      ✓ Compiled in 59ms
+[02:37:53.013] Server  LOG      ✓ Compiled in 38ms
+[02:41:01.592] Server  LOG      ✓ Compiled in 39ms
