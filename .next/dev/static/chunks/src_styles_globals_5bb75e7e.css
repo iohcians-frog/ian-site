@@ -1014,8 +1014,16 @@ img, video {
   --tw-prose-invert-td-borders: #334155;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .collapse {
   visibility: collapse;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .mx-auto {

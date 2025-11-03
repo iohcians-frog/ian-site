@@ -66,6 +66,20 @@ export default function About() {
             </div>
 
             <div>
+              <h3 className="font-semibold">Why a frog?</h3>
+              <p>
+                Our frog pays tribute to physicist <strong>André Geim</strong>, who once
+                <em> levitated a frog</em> — and later won the <strong>Nobel Prize in Physics</strong>.  
+                It sounded absurd, yet it demonstrated <strong>diamagnetic levitation</strong> — a real,
+                groundbreaking physical phenomenon.  
+                Half of our site critiques research that borders on nonsense —  
+                but by all means, some of it may one day be the <em>levitating frog</em> of its field.  
+                After all, the line between <strong>genius and nonsense</strong> can be just
+                one bold experiment apart.
+              </p>
+            </div>
+
+            <div>
               <h3 className="font-semibold">Are you anti-science?</h3>
               <p>
                 Absolutely not.  

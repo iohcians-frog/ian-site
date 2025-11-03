@@ -844,15 +844,65 @@ function About() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                             className: "font-semibold",
-                                            children: "Are you anti-science?"
+                                            children: "Why a frog?"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/about.tsx",
                                             lineNumber: 69,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            children: "Absolutely not. We love science enough to laugh at its bad habits — publication pressure, over-interpretation, and the art of making a p-value sound profound. Humor is our form of respect."
-                                        }, void 0, false, {
+                                            children: [
+                                                "Our frog pays tribute to physicist ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                    children: "André Geim"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/about.tsx",
+                                                    lineNumber: 71,
+                                                    columnNumber: 52
+                                                }, this),
+                                                ", who once",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("em", {
+                                                    children: " levitated a frog"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/about.tsx",
+                                                    lineNumber: 72,
+                                                    columnNumber: 17
+                                                }, this),
+                                                " — and later won the ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                    children: "Nobel Prize in Physics"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/about.tsx",
+                                                    lineNumber: 72,
+                                                    columnNumber: 64
+                                                }, this),
+                                                ". It sounded absurd, yet it demonstrated ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                    children: "diamagnetic levitation"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/about.tsx",
+                                                    lineNumber: 73,
+                                                    columnNumber: 56
+                                                }, this),
+                                                " — a real, groundbreaking physical phenomenon. Half of our site critiques research that borders on nonsense — but by all means, some of it may one day be the ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("em", {
+                                                    children: "levitating frog"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/about.tsx",
+                                                    lineNumber: 76,
+                                                    columnNumber: 65
+                                                }, this),
+                                                " of its field. After all, the line between ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                    children: "genius and nonsense"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/pages/about.tsx",
+                                                    lineNumber: 77,
+                                                    columnNumber: 45
+                                                }, this),
+                                                " can be just one bold experiment apart."
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/src/pages/about.tsx",
                                             lineNumber: 70,
                                             columnNumber: 15
@@ -867,23 +917,46 @@ function About() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                             className: "font-semibold",
+                                            children: "Are you anti-science?"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/about.tsx",
+                                            lineNumber: 83,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            children: "Absolutely not. We love science enough to laugh at its bad habits — publication pressure, over-interpretation, and the art of making a p-value sound profound. Humor is our form of respect."
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/pages/about.tsx",
+                                            lineNumber: 84,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/pages/about.tsx",
+                                    lineNumber: 82,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "font-semibold",
                                             children: "Can I submit a paper?"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/about.tsx",
-                                            lineNumber: 80,
+                                            lineNumber: 94,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "Soon. We’re building an open submission system for readers to suggest studies, with open-access links whenever possible. We’ll verify, annotate, and archive them for educational use."
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/about.tsx",
-                                            lineNumber: 81,
+                                            lineNumber: 95,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/about.tsx",
-                                    lineNumber: 79,
+                                    lineNumber: 93,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -893,20 +966,20 @@ function About() {
                                             children: "Are the authors credited?"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/about.tsx",
-                                            lineNumber: 90,
+                                            lineNumber: 104,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "Always. We never hide source material — only identities when needed. Every case links to the original publication for full context."
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/about.tsx",
-                                            lineNumber: 91,
+                                            lineNumber: 105,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/about.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 103,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -916,20 +989,20 @@ function About() {
                                             children: "Do you accept donations or sponsorship?"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/about.tsx",
-                                            lineNumber: 99,
+                                            lineNumber: 113,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "No. IAN is deliberately free of institutional funding or influence. We believe independence is the only way to keep curiosity honest."
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/about.tsx",
-                                            lineNumber: 100,
+                                            lineNumber: 114,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/pages/about.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 112,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -948,7 +1021,7 @@ function About() {
                     className: "border-slate-300"
                 }, void 0, false, {
                     fileName: "[project]/src/pages/about.tsx",
-                    lineNumber: 109,
+                    lineNumber: 123,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -959,7 +1032,7 @@ function About() {
                             children: "– The Institute for Applied Nonsense (IAN)"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/about.tsx",
-                            lineNumber: 113,
+                            lineNumber: 127,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -967,13 +1040,13 @@ function About() {
                             children: "Quietly teaching clarity, one ridiculous paper at a time."
                         }, void 0, false, {
                             fileName: "[project]/src/pages/about.tsx",
-                            lineNumber: 114,
+                            lineNumber: 128,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/about.tsx",
-                    lineNumber: 112,
+                    lineNumber: 126,
                     columnNumber: 9
                 }, this)
             ]
