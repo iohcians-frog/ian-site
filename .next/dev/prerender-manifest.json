@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "f739851b6d7600023262a785902a31b9",
-    "previewModeSigningKey": "e0faae41d423289d5ce7a2e809ea49bd0268ea3a5f251752dee30618f03750cc",
-    "previewModeEncryptionKey": "4fa2517027937c6b868ad44540770500952194d9fc57fb497c2ef886a1316d1a"
-  }
-}
+{"version":4,"routes":{"/cases/graphs-persuasion":{},"/cases/microwave-regen":{},"/cases/ml-candle":{},"/cases/test-case":{},"/serious/tylenol-pregnancy":{}},"dynamicRoutes":{"/cases/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/cases/[slug]","routeRegex":"^\\/cases\\/([^/]+?)(?:\\/)?$","allowHeader":[]},"/serious/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":false,"fallbackRevalidate":false,"fallbackSourceRoute":"/serious/[slug]","routeRegex":"^\\/serious\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"9ccbcc0478802987daffde15dfcae425","previewModeSigningKey":"4580dba92c1af73685ae4799b3e6661ea758ac59876eb305abd7a55edf3bfef8","previewModeEncryptionKey":"8d6f764e5dacfbd6d42f226e02d70afd0c0c6fadae1419cf5d38be8f5999f67c"}}

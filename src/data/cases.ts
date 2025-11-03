@@ -17,15 +17,6 @@ export type CaseFile = CaseMetadata;
 
 export const cases: CaseMetadata[] = [
   {
-  slug: "test-case",
-  title: "Testing If This Works",
-  verdict: "elegant",
-  tags: ["Test", "Demo"],
-  field: "Test",
-  date: "2025-11-02",
-  summary: "A simple test to see if everything is working.",
-  },
-  {
     slug: "microwave-regen",
     title: "Microwave-Assisted Regeneration of Activated Carbon",
     verdict: "elegant",

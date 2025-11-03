@@ -88,9 +88,9 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 pb-4">
         <h2 className="text-2xl font-bold mb-5">Serious Research, Questionable Purpose</h2>
         <p className="mt-4 max-w-3xl text-slate-700 leading-relaxed">
-    Every paper here meant well.
-  </p>
-        <div className="grid gap-4 md:grid-cols-2">
+          Every paper here meant well.
+        </p>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           <CaseCard
             href="/cases/microwave-regen"
             title="Microwave-Assisted Regeneration of Activated Carbon"

@@ -17,19 +17,37 @@ function Layout({ children }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("header", {
                 className: "border-b",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "mx-auto max-w-5xl px-6 py-4 flex items-center justify-between",
+                    className: "mx-auto max-w-5xl px-6 py-5 flex items-center justify-between",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                             href: "/",
-                            className: "font-bold tracking-tight text-xl",
-                            children: "IAN — Institute for Applied Nonsense"
-                        }, void 0, false, {
+                            className: "flex items-center gap-3",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
+                                    src: "/logo.png",
+                                    alt: "IAN Logo",
+                                    className: "h-8 w-8 object-contain opacity-90 hover:opacity-100 transition"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 11,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                    className: "font-bold tracking-tight text-xl sm:text-2xl",
+                                    children: "IAN — Institute for Applied Nonsense"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 16,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 8,
+                            lineNumber: 10,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
-                            className: "flex gap-5 text-sm",
+                            className: "flex gap-6 text-sm sm:text-base font-medium",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/cases",
@@ -37,7 +55,7 @@ function Layout({ children }) {
                                     children: "Cases"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 12,
+                                    lineNumber: 23,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -46,7 +64,7 @@ function Layout({ children }) {
                                     children: "Serious"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 13,
+                                    lineNumber: 26,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -55,7 +73,7 @@ function Layout({ children }) {
                                     children: "Manifesto"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 14,
+                                    lineNumber: 29,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -64,31 +82,31 @@ function Layout({ children }) {
                                     children: "About"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 15,
+                                    lineNumber: 32,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 11,
+                            lineNumber: 22,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Layout.tsx",
-                    lineNumber: 7,
+                    lineNumber: 8,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout.tsx",
-                lineNumber: 6,
+                lineNumber: 7,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("main", {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout.tsx",
-                lineNumber: 19,
+                lineNumber: 40,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("footer", {
@@ -97,11 +115,11 @@ function Layout({ children }) {
                     className: "mx-auto max-w-5xl px-6 py-8 flex items-center justify-between",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "text-sm",
+                            className: "text-sm text-slate-600",
                             children: "Powered by curiosity, caffeine, and questionable grant proposals. 🐸"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 22,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
@@ -110,18 +128,18 @@ function Layout({ children }) {
                             className: "h-6 w-6 opacity-70"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 25,
+                            lineNumber: 48,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Layout.tsx",
-                    lineNumber: 21,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout.tsx",
-                lineNumber: 20,
+                lineNumber: 43,
                 columnNumber: 7
             }, this)
         ]
@@ -296,18 +314,6 @@ __turbopack_context__.s([
     ()=>getFields
 ]);
 const cases = [
-    {
-        slug: "test-case",
-        title: "Testing If This Works",
-        verdict: "elegant",
-        tags: [
-            "Test",
-            "Demo"
-        ],
-        field: "Test",
-        date: "2025-11-02",
-        summary: "A simple test to see if everything is working."
-    },
     {
         slug: "microwave-regen",
         title: "Microwave-Assisted Regeneration of Activated Carbon",

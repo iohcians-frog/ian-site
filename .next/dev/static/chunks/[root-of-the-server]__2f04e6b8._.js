@@ -471,82 +471,77 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [client] (ecmascript)");
-;
-var _s = __turbopack_context__.k.signature();
 ;
 ;
 function Layout({ children }) {
-    _s();
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
-    const basePath = router.basePath || "";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-white",
+        className: "min-h-screen bg-white text-black",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                className: "mx-auto max-w-5xl px-5 py-6",
+                className: "border-b",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex items-center justify-between",
+                    className: "mx-auto max-w-5xl px-6 py-5 flex items-center justify-between",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "/",
-                            className: "flex items-center gap-2 text-sm text-slate-600 hover:underline",
+                            className: "flex items-center gap-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: "/logo.png",
                                     alt: "IAN Logo",
-                                    className: "h-6 w-6 object-contain opacity-80 hover:opacity-100 transition"
+                                    className: "h-8 w-8 object-contain opacity-90 hover:opacity-100 transition"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 19,
+                                    lineNumber: 11,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "font-bold tracking-tight text-xl sm:text-2xl",
                                     children: "IAN — Institute for Applied Nonsense"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 24,
+                                    lineNumber: 16,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 15,
+                            lineNumber: 10,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                            className: "space-x-5 text-sm",
+                            className: "flex gap-6 text-sm sm:text-base font-medium",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    className: "hover:underline",
                                     href: "/cases",
+                                    className: "hover:underline",
                                     children: "Cases"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 23,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/serious",
+                                    className: "hover:underline",
+                                    children: "Serious"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/Layout.tsx",
+                                    lineNumber: 26,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/manifesto",
+                                    className: "hover:underline",
+                                    children: "Manifesto"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
                                     lineNumber: 29,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    className: "hover:underline",
-                                    href: "/serious",
-                                    children: "Serious"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 30,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    className: "hover:underline",
-                                    href: "/manifesto",
-                                    children: "Manifesto"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/Layout.tsx",
-                                    lineNumber: 31,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    className: "hover:underline",
                                     href: "/about",
+                                    className: "hover:underline",
                                     children: "About"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Layout.tsx",
@@ -556,71 +551,67 @@ function Layout({ children }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 28,
+                            lineNumber: 22,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Layout.tsx",
-                    lineNumber: 13,
+                    lineNumber: 8,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout.tsx",
-                lineNumber: 12,
+                lineNumber: 7,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout.tsx",
-                lineNumber: 38,
+                lineNumber: 40,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-                className: "border-t",
+                className: "mt-20 border-t",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mx-auto flex max-w-5xl items-center justify-between px-5 py-6 text-sm text-slate-600",
+                    className: "mx-auto max-w-5xl px-6 py-8 flex items-center justify-between",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "text-sm text-slate-600",
                             children: "Powered by curiosity, caffeine, and questionable grant proposals. 🐸"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 43,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: `${basePath}/frog.svg`,
+                            src: "/frog.svg",
                             alt: "frog",
                             className: "h-6 w-6 opacity-70"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Layout.tsx",
-                            lineNumber: 44,
+                            lineNumber: 48,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Layout.tsx",
-                    lineNumber: 42,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/Layout.tsx",
-                lineNumber: 41,
+                lineNumber: 43,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Layout.tsx",
-        lineNumber: 10,
+        lineNumber: 5,
         columnNumber: 5
     }, this);
 }
-_s(Layout, "fN7XvhJ+p5oE6+Xlo0NJmXpxjC8=", false, function() {
-    return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
-    ];
-});
 _c = Layout;
 var _c;
 __turbopack_context__.k.register(_c, "Layout");
@@ -662,7 +653,7 @@ function Manifesto() {
                                 children: "Where rigor meets ridiculousness — and both make sense."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 11,
+                                lineNumber: 13,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -675,7 +666,7 @@ function Manifesto() {
                         className: "border-slate-300"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 16,
+                        lineNumber: 18,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -686,7 +677,7 @@ function Manifesto() {
                                 children: "Our Premise"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 20,
+                                lineNumber: 22,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -696,7 +687,7 @@ function Manifesto() {
                                         children: "We exist because someone, somewhere, once used a million-dollar spectrometer to measure the optimal curvature of a potato chip."
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 22,
+                                        lineNumber: 24,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -706,39 +697,46 @@ function Manifesto() {
                                                 children: " ponder and laugh."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                                lineNumber: 28,
+                                                lineNumber: 30,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 26,
+                                        lineNumber: 28,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "Science, in its truest form, is curiosity with consequences. But somewhere along the way, curiosity became paperwork, and discovery became a PDF."
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 30,
+                                        lineNumber: 32,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: "So we collect two kinds of science: the kind that makes no practical sense, and the kind that makes too much. One reminds us how far curiosity can go; the other reminds us why clear understanding still matters."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/manifesto.tsx",
+                                        lineNumber: 36,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 21,
+                                lineNumber: 23,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 19,
+                        lineNumber: 21,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                         className: "border-slate-300"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 37,
+                        lineNumber: 44,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -749,7 +747,7 @@ function Manifesto() {
                                 children: "Our Creed"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 41,
+                                lineNumber: 48,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -759,21 +757,28 @@ function Manifesto() {
                                         children: "We honor experiments that make no sense — as long as they make us think."
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 43,
+                                        lineNumber: 50,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "We celebrate hypotheses that collapse gracefully, like failed soufflés of reason."
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 44,
+                                        lineNumber: 51,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "We believe a levitating frog teaches more about wonder than a thousand grant reports."
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 47,
+                                        lineNumber: 54,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: "And we believe that good science deserves translation — not to simplify it, but to give it back its humanity."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/manifesto.tsx",
+                                        lineNumber: 57,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -783,32 +788,32 @@ function Manifesto() {
                                                 children: "IAN is science after a cup of coffee and a good existential crisis."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                                lineNumber: 51,
+                                                lineNumber: 62,
                                                 columnNumber: 42
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 50,
+                                        lineNumber: 61,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 42,
+                                lineNumber: 49,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 40,
+                        lineNumber: 47,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                         className: "border-slate-300"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 57,
+                        lineNumber: 68,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -819,16 +824,16 @@ function Manifesto() {
                                 children: "Our Mission"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 61,
-                                columnNumber: 13
+                                lineNumber: 73,
+                                columnNumber: 3
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-slate-700 leading-relaxed",
                                 children: "To remind the world that:"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 62,
-                                columnNumber: 13
+                                lineNumber: 74,
+                                columnNumber: 3
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                 className: "list-disc pl-6 space-y-2 text-slate-700",
@@ -838,65 +843,81 @@ function Manifesto() {
                                             children: "Validity is not value."
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/manifesto.tsx",
-                                            lineNumber: 64,
-                                            columnNumber: 19
+                                            lineNumber: 76,
+                                            columnNumber: 9
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 64,
-                                        columnNumber: 15
+                                        lineNumber: 76,
+                                        columnNumber: 5
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                             children: "Significance is not significance."
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/manifesto.tsx",
-                                            lineNumber: 65,
-                                            columnNumber: 19
+                                            lineNumber: 77,
+                                            columnNumber: 9
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 65,
-                                        columnNumber: 15
+                                        lineNumber: 77,
+                                        columnNumber: 5
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                             children: "Peer review is not peer understanding."
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/manifesto.tsx",
-                                            lineNumber: 66,
-                                            columnNumber: 19
+                                            lineNumber: 78,
+                                            columnNumber: 9
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 66,
-                                        columnNumber: 15
+                                        lineNumber: 78,
+                                        columnNumber: 5
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 63,
-                                columnNumber: 13
+                                lineNumber: 75,
+                                columnNumber: 3
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-slate-700 leading-relaxed",
-                                children: "We collect the beautifully pointless, the mathematically perfect but spiritually empty. We turn them into lessons on humility, creativity, and the absurd glory of being human."
+                                children: "We collect the beautifully pointless, the mathematically perfect but spiritually empty, and the scientifically sound yet socially misunderstood. We turn them into lessons on humility, creativity, and the absurd glory of being human."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 68,
-                                columnNumber: 13
+                                lineNumber: 80,
+                                columnNumber: 3
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-slate-700 leading-relaxed",
+                                children: "Beyond collection, we aim to build an open database — a living archive of curiosity — where students can learn, teachers can replicate simple and safe experiments, and anyone can explore how critical thinking actually works in practice. A place where science is not only observed, but experienced, questioned, and shared with clarity."
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/manifesto.tsx",
+                                lineNumber: 86,
+                                columnNumber: 3
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-slate-700 leading-relaxed",
+                                children: "We also work to explain complex, important topics in plain language — bridging the gap between technical jargon and public understanding. Because even experts sometimes struggle to translate their own field, and knowledge loses meaning when it cannot be shared. Our goal is simple: to make sense of what matters, without losing the wonder."
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/manifesto.tsx",
+                                lineNumber: 93,
+                                columnNumber: 3
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 60,
-                        columnNumber: 11
+                        lineNumber: 72,
+                        columnNumber: 1
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                         className: "border-slate-300"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 75,
+                        lineNumber: 102,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -907,43 +928,50 @@ function Manifesto() {
                                 children: "Our Ethos"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 79,
+                                lineNumber: 106,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "space-y-3 text-slate-700 leading-relaxed",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: "We are anonymous not out of fear, but out of respect — for every researcher who dared to ask a stupid question seriously."
+                                        children: "We are anonymous not out of fear, but out of respect — for every researcher who dared to ask a stupid question seriously, and every reader trying to make sense of a serious question simply."
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 108,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "We believe science must be able to laugh at itself — or it will forget why it began to wonder in the first place."
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/manifesto.tsx",
-                                        lineNumber: 85,
+                                        lineNumber: 113,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: "We believe translation is as sacred as discovery. The world doesn’t need more noise — it needs clearer meaning."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/manifesto.tsx",
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 80,
+                                lineNumber: 107,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 78,
+                        lineNumber: 105,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                         className: "border-slate-300"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 92,
+                        lineNumber: 124,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -954,28 +982,28 @@ function Manifesto() {
                                 children: "Our Motto"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 96,
+                                lineNumber: 128,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("blockquote", {
                                 className: "border-l-4 border-slate-300 pl-4 italic text-lg text-slate-700",
-                                children: "If it makes sense but doesn't, it belongs to us."
+                                children: "If it makes sense but doesn’t, or doesn’t but should — it belongs to us."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 97,
+                                lineNumber: 129,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 95,
+                        lineNumber: 127,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                         className: "border-slate-300"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 102,
+                        lineNumber: 134,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -986,7 +1014,7 @@ function Manifesto() {
                                 children: "– The Institute for Applied Nonsense (IAN)"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 106,
+                                lineNumber: 138,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -994,7 +1022,7 @@ function Manifesto() {
                                 children: "A division of the Reductionphobia Collective."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 107,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1002,13 +1030,13 @@ function Manifesto() {
                                 children: "Founded somewhere between reason and revelation, circa whenever it felt right."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/manifesto.tsx",
-                                lineNumber: 108,
+                                lineNumber: 140,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/manifesto.tsx",
-                        lineNumber: 105,
+                        lineNumber: 137,
                         columnNumber: 11
                     }, this)
                 ]

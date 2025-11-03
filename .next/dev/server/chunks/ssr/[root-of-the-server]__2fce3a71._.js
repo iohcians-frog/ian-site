@@ -24,17 +24,17 @@ const serious = [
         paperLink: ""
     },
     {
-        slug: "opioid-epidemic",
-        title: "The Opioid Epidemic: The Paper Trail of Pain",
-        verdict: "red-flag",
+        slug: "opioids-silent-dependence",
+        title: "Opioids: The Silent Dependence",
+        verdict: "caution",
         tags: [
-            "Addiction Studies",
             "Pharmacology",
-            "Sociology"
+            "Pain Management",
+            "Public Health"
         ],
-        field: "Addiction Studies",
-        date: "2025-10-30",
-        summary: "A breakdown of how prescription data, corporate incentives, and public health responses shaped one of the biggest crises in medicine.",
+        field: "Medicine",
+        date: "2025-11-03",
+        summary: "Kills pain, then quietly keeps it alive.",
         paperLink: ""
     }
 ];
@@ -67,7 +67,7 @@ function Layout({ children }) {
                             className: "flex items-center gap-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
-                                    src: "logo.png",
+                                    src: "/logo.png",
                                     alt: "IAN Logo",
                                     className: "h-8 w-8 object-contain opacity-90 hover:opacity-100 transition"
                                 }, void 0, false, {
@@ -166,7 +166,7 @@ function Layout({ children }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
-                            src: "frog.svg",
+                            src: "/frog.svg",
                             alt: "frog",
                             className: "h-6 w-6 opacity-70"
                         }, void 0, false, {
@@ -299,19 +299,94 @@ function Home() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                        className: "mt-6 max-w-3xl text-lg text-slate-700 leading-relaxed",
-                        children: "We make sense of the stuff that technically makes sense… but really, really doesn’t."
+                        className: "mt-6 max-w-3xl text-lg text-slate-700 leading-relaxed font-medium",
+                        children: "Serious Science, Not-So-Serious Language."
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
                         lineNumber: 62,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                        className: "mt-3 max-w-4xl text-slate-700",
-                        children: "We collect real, peer-reviewed studies that are methodologically solid and almost pointless in practice. Each case explains why it made sense, why it didn’t, and what it teaches. If it’s scientifically valid but existentially void, it belongs here."
+                        className: "mt-4 max-w-4xl text-slate-700 leading-relaxed",
+                        children: [
+                            "We study the kind of science that either ",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("em", {
+                                children: "means nothing"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/index.tsx",
+                                lineNumber: 66,
+                                columnNumber: 52
+                            }, this),
+                            " or ",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("em", {
+                                children: "means too much"
+                            }, void 0, false, {
+                                fileName: "[project]/src/pages/index.tsx",
+                                lineNumber: 66,
+                                columnNumber: 78
+                            }, this),
+                            ". Some papers are brilliantly useless. Others are useful but hopelessly misunderstood. Either way, we read them so you don’t have to."
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/pages/index.tsx",
+                        lineNumber: 65,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                        className: "mt-4 max-w-4xl text-slate-700 leading-relaxed",
+                        children: "At IAN, we collect two species of research:"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 66,
+                        lineNumber: 70,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
+                        className: "mt-2 max-w-4xl text-slate-700 list-disc list-inside leading-relaxed",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("strong", {
+                                        children: "Serious Research, Questionable Purpose"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/index.tsx",
+                                        lineNumber: 75,
+                                        columnNumber: 13
+                                    }, this),
+                                    " — real, peer-reviewed studies that are methodologically solid yet existentially void."
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/pages/index.tsx",
+                                lineNumber: 74,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("strong", {
+                                        children: "Serious Science"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/pages/index.tsx",
+                                        lineNumber: 78,
+                                        columnNumber: 13
+                                    }, this),
+                                    " — headline-dominating research translated into plain language, minus the panic."
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/pages/index.tsx",
+                                lineNumber: 77,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/pages/index.tsx",
+                        lineNumber: 73,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                        className: "mt-4 max-w-4xl text-slate-700 leading-relaxed",
+                        children: "Because in a world drowning in data and jargon, someone has to make nonsense make sense — and sense a little less serious."
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/index.tsx",
+                        lineNumber: 81,
                         columnNumber: 9
                     }, this)
                 ]
@@ -325,14 +400,22 @@ function Home() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
                         className: "text-2xl font-bold mb-5",
-                        children: "Case Files"
+                        children: "Serious Research, Questionable Purpose"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 76,
+                        lineNumber: 89,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                        className: "mt-4 max-w-3xl text-slate-700 leading-relaxed",
+                        children: "Every paper here meant well."
+                    }, void 0, false, {
+                        fileName: "[project]/src/pages/index.tsx",
+                        lineNumber: 90,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "grid gap-4 md:grid-cols-2",
+                        className: "mt-4 grid gap-4 md:grid-cols-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(CaseCard, {
                                 href: "/cases/microwave-regen",
@@ -341,7 +424,7 @@ function Home() {
                                     children: "🧪 Elegant nonsense"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/index.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 97,
                                     columnNumber: 22
                                 }, void 0),
                                 tags: [
@@ -350,7 +433,7 @@ function Home() {
                                 ]
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 78,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(CaseCard, {
@@ -360,7 +443,7 @@ function Home() {
                                     children: "🪄 Nice demo"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/index.tsx",
-                                    lineNumber: 90,
+                                    lineNumber: 106,
                                     columnNumber: 22
                                 }, void 0),
                                 tags: [
@@ -369,7 +452,7 @@ function Home() {
                                 ]
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 87,
+                                lineNumber: 103,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(CaseCard, {
@@ -379,7 +462,7 @@ function Home() {
                                     children: "🧰 Over-engineered"
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/index.tsx",
-                                    lineNumber: 96,
+                                    lineNumber: 112,
                                     columnNumber: 22
                                 }, void 0),
                                 tags: [
@@ -388,13 +471,13 @@ function Home() {
                                 ]
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 93,
+                                lineNumber: 109,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 77,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -405,18 +488,18 @@ function Home() {
                             children: "Browse all cases →"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/index.tsx",
-                            lineNumber: 103,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 102,
+                        lineNumber: 118,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 75,
+                lineNumber: 88,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
@@ -427,7 +510,7 @@ function Home() {
                         children: "How it works"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 111,
+                        lineNumber: 127,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
@@ -437,7 +520,7 @@ function Home() {
                                 children: "We find real papers that look brilliant and do very little."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 113,
+                                lineNumber: 129,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -447,7 +530,7 @@ function Home() {
                                         children: "Sense"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/index.tsx",
-                                        lineNumber: 115,
+                                        lineNumber: 131,
                                         columnNumber: 43
                                     }, this),
                                     " • ",
@@ -455,7 +538,7 @@ function Home() {
                                         children: "Nonsense"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/index.tsx",
-                                        lineNumber: 115,
+                                        lineNumber: 131,
                                         columnNumber: 58
                                     }, this),
                                     " •",
@@ -464,34 +547,34 @@ function Home() {
                                         children: "Lesson"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/index.tsx",
-                                        lineNumber: 116,
+                                        lineNumber: 132,
                                         columnNumber: 13
                                     }, this),
                                     "."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 114,
+                                lineNumber: 130,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                                 children: "We tag by field and verdict: 🧠 Genius curiosity • 🪄 Nice demo • 🧰 Over-engineered • 🧪 Elegant nonsense."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 118,
+                                lineNumber: 134,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                                 children: "We keep it kind. We keep it anonymous."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 122,
+                                lineNumber: 138,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 112,
+                        lineNumber: 128,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -499,20 +582,20 @@ function Home() {
                         children: "Validity isn’t value. Significance isn’t significance. Peer review isn’t peer understanding."
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 124,
+                        lineNumber: 140,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 110,
+                lineNumber: 126,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("hr", {
                 className: "mx-auto max-w-5xl border-t-[1.5px] border-slate-200 my-5"
             }, void 0, false, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 131,
+                lineNumber: 147,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
@@ -523,7 +606,7 @@ function Home() {
                         children: "Serious Science, with Not-So-Serious Language"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 135,
+                        lineNumber: 151,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -531,7 +614,7 @@ function Home() {
                         children: "Mini plain-language reviews of hot, controversial, or overhyped science. We read the papers so you don’t have to."
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 138,
+                        lineNumber: 154,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -546,12 +629,12 @@ function Home() {
                                 ]
                             }, s.slug, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 145,
+                                lineNumber: 161,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 143,
+                        lineNumber: 159,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -562,18 +645,18 @@ function Home() {
                             children: "Browse all reviews →"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/index.tsx",
-                            lineNumber: 156,
+                            lineNumber: 172,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 155,
+                        lineNumber: 171,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 134,
+                lineNumber: 150,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
@@ -584,7 +667,7 @@ function Home() {
                         children: "How it works (Serious Science Edition)"
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 164,
+                        lineNumber: 180,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("ul", {
@@ -594,7 +677,7 @@ function Home() {
                                 children: "We pick studies that dominate headlines — the ones that make people panic, celebrate, or argue online."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 168,
+                                lineNumber: 184,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
@@ -604,34 +687,34 @@ function Home() {
                                         children: "actually"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/index.tsx",
-                                        lineNumber: 174,
+                                        lineNumber: 190,
                                         columnNumber: 19
                                     }, this),
                                     " says — and what it doesn’t."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 172,
+                                lineNumber: 188,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                                 children: "We tag each review by tone and verdict: ⚠️ Caution • 🚩 Red flag • 🧊 Calm down • 🎈 Overhyped."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 176,
+                                lineNumber: 192,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("li", {
                                 children: "We focus on clarity, not outrage. The goal isn’t to debunk, but to understand."
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/index.tsx",
-                                lineNumber: 180,
+                                lineNumber: 196,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 167,
+                        lineNumber: 183,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -639,13 +722,13 @@ function Home() {
                         children: "Truth deserves translation. Fear deserves context."
                     }, void 0, false, {
                         fileName: "[project]/src/pages/index.tsx",
-                        lineNumber: 185,
+                        lineNumber: 201,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/index.tsx",
-                lineNumber: 163,
+                lineNumber: 179,
                 columnNumber: 7
             }, this)
         ]

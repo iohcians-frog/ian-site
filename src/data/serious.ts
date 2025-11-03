@@ -22,14 +22,13 @@ export const serious: SeriousMetadata[] = [
     paperLink: "",
   },
   {
-    slug: "opioid-epidemic",
-    title: "The Opioid Epidemic: The Paper Trail of Pain",
-    verdict: "red-flag",
-    tags: ["Addiction Studies", "Pharmacology", "Sociology"],
-    field: "Addiction Studies",
-    date: "2025-10-30",
-    summary:
-      "A breakdown of how prescription data, corporate incentives, and public health responses shaped one of the biggest crises in medicine.",
+    slug: "opioids-silent-dependence",
+    title: "Opioids: The Silent Dependence",
+    verdict: "caution",
+    tags: ["Pharmacology", "Pain Management", "Public Health"],
+    field: "Medicine",
+    date: "2025-11-03",
+    summary: "Kills pain, then quietly keeps it alive.",
     paperLink: "",
   },
 ];
