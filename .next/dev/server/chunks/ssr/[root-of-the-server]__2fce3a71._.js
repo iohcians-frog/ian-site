@@ -67,7 +67,7 @@ function Layout({ children }) {
                             className: "flex items-center gap-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
-                                    src: "/logo.png",
+                                    src: "logo.png",
                                     alt: "IAN Logo",
                                     className: "h-8 w-8 object-contain opacity-90 hover:opacity-100 transition"
                                 }, void 0, false, {
@@ -166,7 +166,7 @@ function Layout({ children }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
-                            src: "/frog.svg",
+                            src: "frog.svg",
                             alt: "frog",
                             className: "h-6 w-6 opacity-70"
                         }, void 0, false, {
