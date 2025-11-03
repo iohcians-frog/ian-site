@@ -11,6 +11,7 @@ paperLink: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Microwave+Reg
   <img src="/frog-microwave-rock.png" alt="PAIN!!!" width="300" />
 </div>
 
+---
 
 
 ## The Premise
@@ -23,7 +24,7 @@ So what are they actually doing?
 They’re trying to **regenerate used activated carbon** — the black stuff that traps pollutants — by blasting it with microwaves instead of baking it in a furnace.  
 The idea is simple: restore adsorption capacity faster, use less energy, and maybe save some cash.  
 
-*(Source: Google Scholar; ResearchGate Review on Microwave Regeneration of Waste Activated Carbon)*  
+*(Source: Google Scholar; IOP Science)*  
 
 ---
 
@@ -41,7 +42,7 @@ So the academic dream became: *what if we microwave it instead?*
 
 Most papers suggest this could work for **water treatment plants**, **VOC control systems**, or **onsite regeneration of PFAS-loaded filters**.  
 
-*(Source: IntechOpen – Role of Activated Carbon in Water Treatment; MDPI and RSC Feasibility Papers)*  
+*(Source: IntechOpen; Water Research Foundation)*  
 
 ---
 
@@ -49,11 +50,11 @@ Most papers suggest this could work for **water treatment plants**, **VOC contro
 
 This isn’t a pseudoscience corner of YouTube. It’s in serious journals:  
 
-- *Journal of Hazardous Materials*  
-- *Carbon*  
-- *Chemical Engineering Journal*  
-- *Environmental Science & Technology*  
-- *Separation and Purification Technology*  
+- *RSC Advances*  
+- *Desalination and Water Treatment*  
+- *Journal of Environmental Chemical Engineering*  
+- *Aerosol and Air Quality Research*  
+- *MDPI*  
 
 Each with careful experiments, glossy graphs, and that classic closing line:  
 *“Shows promising potential for industrial application.”*  
@@ -64,7 +65,7 @@ But despite decades of papers — **no water treatment facility has actually ado
 So the question isn’t *“does it work?”*  
 It’s *“why are we still microwaving teaspoons of carbon in 2025?”*  
 
-*(Source: Journal of Hazardous Materials; Carbon; Environmental Science & Technology; Chemical Engineering Journal)*  
+*(Source: RSC Advances; MDPI; Desalination and Water Treatment)*  
 
 ---
 
@@ -78,11 +79,11 @@ Let’s be fair: the **science itself is pristine.**
 - Mechanism backed by physics — microwaves heat carbon internally rather than the entire furnace shell  
 
 In theory, this gives **shorter regeneration time** and **lower energy use**.  
-A DOE-backed study even noted notable energy reduction versus conventional heating — though exact savings vary wildly between setups.  
+A DOE-backed study even noted notable energy reduction versus conventional heating — though exact savings vary between setups.  
 
 On paper, it’s elegant and efficient — the kind of result that practically writes its own grant proposal.  
 
-*(Source: MDPI – Efficient Heating of Activated Carbon in Microwave Field; NETL – U.S. Department of Energy)*  
+*(Source: MDPI; NETL – U.S. Department of Energy)*  
 
 ---
 
@@ -106,7 +107,7 @@ A 0.8% operational savings won’t make anyone rip out working systems.
 So yes — the **data is clean**, the **graphs are perfect**, and the **microwaves hum** —  
 but outside the lab, it’s mostly hot air.  
 
-*(Source: NIEHS SRP; NETL; Water Research Foundation; U.S. Department of Energy)*  
+*(Source: NIEHS SRP; NETL; Water Research Foundation; U.S. DOE)*  
 
 ---
 
@@ -128,7 +129,7 @@ You can’t microwave that mess back to life in two minutes, no matter how “op
 So yes — the method works.  
 But it works *only* in a world where carbon behaves politely and microwaves never arc.  
 
-*(Source: Standard laboratory protocols reported in RSC Advances and Chemical Engineering Journal)*  
+*(Source: RSC Advances; Aerosol and Air Quality Research)*  
 
 ---
 
@@ -177,21 +178,30 @@ And that’s what IAN is here to archive —
 **Implementation status:** Still in the microwave  
 
 Because sometimes the problem isn’t the science —  
-it’s that reality forgot to read the paper.
-
+it’s that reality forgot to read the paper.  
 
 ---
 
-## References *(for those bored enough to read further)*
+## References 
+*(for those bored enough to read further)*
 
 - **[Google Scholar.](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Microwave+Regeneration+of+Activated+Carbon)** “Microwave Regeneration of Activated Carbon.”  
-- **[Zheng, J. et al.](https://pubs.rsc.org/en/content/articlelanding/2016/ra/c6ra05211h)** (2016). *Microwave Regeneration of Spent Activated Carbon for Ester-Containing Wastewater.* *RSC Advances.*  
+- **[Zheng, J. et al.](https://pubs.rsc.org/en/content/articlelanding/2016/ra/c6ra05211h)** *Microwave Regeneration of Spent Activated Carbon for Ester-Containing Wastewater.* *RSC Advances.*  
+- **[Cheng, S. et al.](https://www.sciencedirect.com/science/article/pii/S1944398624032764)** *Microwave-Assisted Regeneration of Spent Activated Carbon from Paracetamol Wastewater Plant Using Response Surface Methodology.* *Desalination and Water Treatment.*  
+- **[Mohamad Nor, N. et al.](https://www.sciencedirect.com/science/article/abs/pii/S2213343716300513)** *Development of High Porosity Structures of Activated Carbon via Microwave-Assisted Regeneration for H₂S Removal.* *Journal of Environmental Chemical Engineering.*  
+- **[Hsiao, S.-Y. et al.](https://aaqr.org/articles/aaqr-22-01-oa-0010)** *Adsorption of Volatile Organic Compounds and Microwave Regeneration on Self-Prepared High-Surface-Area Beaded Activated Carbon.* *Aerosol and Air Quality Research,* Vol. 22, Issue 6 (2022).  
 - **[NETL (U.S. DOE).](https://netl.doe.gov)** *Microwave Regeneration of Sorbents – Research Brief.*  
 - **[NIEHS SRP Research Brief #149.](https://tools.niehs.nih.gov/srp/1/ResearchBriefs/PDFs/SRP_ResearchBrief_149_508.pdf)** *Onsite Regeneration of Granular Activated Carbon.*  
 - **[Water Research Foundation.](https://www.waterrf.org/resource/microwave-regeneration-pfas-exhausted-granular-activated-carbons)** *Microwave Regeneration of PFAS-Exhausted Granular Activated Carbons.*  
 - **[MDPI.](https://www.mdpi.com/2311-5629/9/2/48)** *Efficient Heating of Activated Carbon in Microwave Field.*  
 - **[DiVA Portal.](https://www.diva-portal.org/smash/get/diva2%3A1535536/FULLTEXT01.pdf)** *Microwave Regeneration of Activated Carbon — Scale-up Challenges.*  
 - **[IntechOpen.](https://www.intechopen.com/chapters/84413)** *Role of Activated Carbon in Water Treatment.*  
+- **[IOP Science.](https://iopscience.iop.org/article/10.1088/1755-1315/983/1/012101)** *A Review About Microwave Regeneration Technology of Waste Activated Carbon.*  
+
+
+ 
+
+
 
 
 

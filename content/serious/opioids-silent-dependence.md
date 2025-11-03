@@ -122,7 +122,8 @@ A little pain doesn’t mean something’s wrong — it means your body is heali
 
 ---
 
-## References *(for those bored enough to read further)*
+## References 
+*(for those bored enough to read further)*
 
 - **[Centers for Disease Control and Prevention (CDC).](https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-h.pdf)** *CDC Clinical Practice Guideline for Prescribing Opioids for Pain — United States, 2022.*  
 - **[National Institutes of Health (NIH) Pain Consortium.](https://www.ninds.nih.gov/current-research/trans-agency-activities/pain-consortium)**  
