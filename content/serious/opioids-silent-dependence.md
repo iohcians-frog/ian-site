@@ -11,6 +11,7 @@ summary: "Kills pain, then quietly keeps it alive."
   <img src="/pain.png" alt="PAIN!!!" width="300" />
 </div>
 
+---
 **Disclaimer:** Not medical advice — just explaining what I think you need to know.
 
 ## TL;DR
@@ -122,9 +123,11 @@ A little pain doesn’t mean something’s wrong — it means your body is heali
 ---
 
 ## References *(for those bored enough to read further)*
-- Centers for Disease Control and Prevention (CDC). *CDC Clinical Practice Guideline for Prescribing Opioids for Pain — United States, 2022.* <https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-h.pdf>  
-- National Institutes of Health (NIH) Pain Consortium. <https://www.ninds.nih.gov/current-research/trans-agency-activities/pain-consortium>  
-- Mayo Clinic. *Postoperative Pain Management: Safe Use of Opioid Medications.* <https://www.mayoclinic.org/tests-procedures/anesthesia/in-depth/pain-medications/art-20046452>  
-- U.S. Department of Health and Human Services (HHS). *Pain Management Best Practices Inter-Agency Task Force Report, 2020.* <https://odphp.health.gov/healthypeople/tools-action/browse-evidence-based-resources/pain-management-best-practices-inter-agency-task-force-report>  
-- World Health Organization (WHO). *Opioid Overdose — Key Facts, 2023.* <https://www.who.int/news-room/fact-sheets/detail/opioid-overdose/>
+
+- **[Centers for Disease Control and Prevention (CDC).](https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-h.pdf)** *CDC Clinical Practice Guideline for Prescribing Opioids for Pain — United States, 2022.*  
+- **[National Institutes of Health (NIH) Pain Consortium.](https://www.ninds.nih.gov/current-research/trans-agency-activities/pain-consortium)**  
+- **[Mayo Clinic.](https://www.mayoclinic.org/tests-procedures/anesthesia/in-depth/pain-medications/art-20046452)** *Postoperative Pain Management: Safe Use of Opioid Medications.*  
+- **[U.S. Department of Health and Human Services (HHS).](https://odphp.health.gov/healthypeople/tools-action/browse-evidence-based-resources/pain-management-best-practices-inter-agency-task-force-report)** *Pain Management Best Practices Inter-Agency Task Force Report.*  
+- **[World Health Organization (WHO).](https://www.who.int/news-room/fact-sheets/detail/opioid-overdose/)** *Opioid Overdose — Key Facts.*  
+
 

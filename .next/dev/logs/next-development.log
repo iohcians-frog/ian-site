@@ -101,3 +101,4 @@ Expression expected
 [02:37:41.502] Server  LOG      ✓ Compiled in 59ms
 [02:37:53.013] Server  LOG      ✓ Compiled in 38ms
 [02:41:01.592] Server  LOG      ✓ Compiled in 39ms
+[03:36:40.200] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. Public Health
