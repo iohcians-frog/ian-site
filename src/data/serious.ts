@@ -16,9 +16,9 @@ export const serious: SeriousMetadata[] = [
     verdict: "caution",
     tags: ["Public Health", "Epidemiology", "Toxicology"],
     field: "Public Health",
-    date: "2025-10-30",
+    date: "2025-11-04",
     summary:
-      "A plain-language look at acetaminophen use in pregnancy: what large studies actually show, and how cautious we really need to be.",
+      "A harmless painkiller or a hidden risk? We still don’t know — and that’s the point",
     paperLink: "",
   },
   {

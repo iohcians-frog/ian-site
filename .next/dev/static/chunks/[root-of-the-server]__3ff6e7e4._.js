@@ -795,8 +795,8 @@ const serious = [
             "Toxicology"
         ],
         field: "Public Health",
-        date: "2025-10-30",
-        summary: "A plain-language look at acetaminophen use in pregnancy: what large studies actually show, and how cautious we really need to be.",
+        date: "2025-11-04",
+        summary: "A harmless painkiller or a hidden risk? We still don’t know — and that’s the point",
         paperLink: ""
     },
     {

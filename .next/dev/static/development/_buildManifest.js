@@ -5,18 +5,6 @@ self.__BUILD_MANIFEST = {
   "/_error": [
     "static/chunks/pages/_error.js"
   ],
-  "/about": [
-    "static/chunks/pages/about.js"
-  ],
-  "/cases": [
-    "static/chunks/pages/cases.js"
-  ],
-  "/cases/[slug]": [
-    "static/chunks/pages/cases/[slug].js"
-  ],
-  "/manifesto": [
-    "static/chunks/pages/manifesto.js"
-  ],
   "/serious": [
     "static/chunks/pages/serious.js"
   ],
