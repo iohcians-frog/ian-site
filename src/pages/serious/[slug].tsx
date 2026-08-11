@@ -1,3 +1,4 @@
+// src/pages/serious/[slug].tsx
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -25,7 +26,9 @@ export default function SeriousPage({ frontmatter, content }: SeriousPageProps) 
       <article className="mx-auto my-12 max-w-3xl rounded-2xl border bg-white p-8 shadow-sm">
         {/* Header */}
         <div className="mb-6 space-y-4">
-          <h1 className="text-4xl font-bold leading-tight">{frontmatter.title}</h1>
+          <h1 className="text-4xl font-bold leading-tight">
+            {frontmatter.title}
+          </h1>
 
           <div className="flex flex-wrap items-center gap-3">
             <VerdictBadge verdict={frontmatter.verdict as any} />
@@ -67,35 +70,62 @@ export default function SeriousPage({ frontmatter, content }: SeriousPageProps) 
   );
 }
 
-/* ---------- SSG (Static Site Generation) ---------- */
+/* ---------- SSG WITH i18n ---------- */
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const seriousDir = path.join(process.cwd(), "content/serious");
+  // Use English folder as the source of truth for which serious pieces exist
+  const seriousDirEn = path.join(process.cwd(), "content/serious/en");
 
-  if (!fs.existsSync(seriousDir)) {
+  if (!fs.existsSync(seriousDirEn)) {
     return { paths: [], fallback: false };
   }
 
-  const filenames = fs.readdirSync(seriousDir);
-  const paths = filenames
+  const filenames = fs
+    .readdirSync(seriousDirEn)
     .filter((filename) => filename.endsWith(".md") || filename.endsWith(".mdx"))
-    .map((filename) => ({
-      params: { slug: filename.replace(/\.mdx?$/, "") },
-    }));
+    .filter((filename) => !filename.startsWith("_")); // in case you add templates
+
+  const locales = ["en", "zh"] as const;
+
+  const paths =
+    filenames.flatMap((filename) => {
+      const slug = filename.replace(/\.mdx?$/, "");
+      return locales.map((locale) => ({
+        params: { slug },
+        locale,
+      }));
+    });
 
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<SeriousPageProps> = async ({
+  params,
+  locale,
+}) => {
   const slug = params?.slug as string;
-  const baseDir = path.join(process.cwd(), "content/serious");
+  const loc = (locale as string) || "en";
+
+  // 1. Try current locale folder first: content/serious/{locale}
+  const baseDir = path.join(process.cwd(), "content/serious", loc);
   const candidates = [
     path.join(baseDir, `${slug}.md`),
     path.join(baseDir, `${slug}.mdx`),
   ];
 
-  const filePath = candidates.find((p) => fs.existsSync(p));
+  let filePath = candidates.find((p) => fs.existsSync(p));
 
+  // 2. If not found and locale is not English, fall back to English file
+  if (!filePath && loc !== "en") {
+    const fallbackBase = path.join(process.cwd(), "content/serious", "en");
+    const fallbackCandidates = [
+      path.join(fallbackBase, `${slug}.md`),
+      path.join(fallbackBase, `${slug}.mdx`),
+    ];
+    filePath = fallbackCandidates.find((p) => fs.existsSync(p));
+  }
+
+  // 3. If still nothing, 404
   if (!filePath) {
     return { notFound: true };
   }
@@ -110,7 +140,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       typeof frontmatter.date === "string"
         ? frontmatter.date
         : frontmatter.date?.toISOString?.() || "",
-  };
+  } as SeriousPageProps["frontmatter"];
 
   return {
     props: {

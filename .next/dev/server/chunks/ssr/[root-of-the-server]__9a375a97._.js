@@ -247,6 +247,7 @@ function labelize(v) {
 
 return __turbopack_context__.a(async (__turbopack_handle_async_dependencies__, __turbopack_async_result__) => { try {
 
+// src/pages/serious/[slug].tsx
 __turbopack_context__.s([
     "default",
     ()=>SeriousPage,
@@ -286,7 +287,7 @@ function SeriousPage({ frontmatter, content }) {
                             children: frontmatter.title
                         }, void 0, false, {
                             fileName: "[project]/src/pages/serious/[slug].tsx",
-                            lineNumber: 28,
+                            lineNumber: 29,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -296,7 +297,7 @@ function SeriousPage({ frontmatter, content }) {
                                     verdict: frontmatter.verdict
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/serious/[slug].tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 34,
                                     columnNumber: 13
                                 }, this),
                                 frontmatter.tags?.map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -304,13 +305,13 @@ function SeriousPage({ frontmatter, content }) {
                                         children: tag
                                     }, tag, false, {
                                         fileName: "[project]/src/pages/serious/[slug].tsx",
-                                        lineNumber: 33,
+                                        lineNumber: 36,
                                         columnNumber: 15
                                     }, this))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/serious/[slug].tsx",
-                            lineNumber: 30,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this),
                         frontmatter.paperLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("a", {
@@ -321,13 +322,13 @@ function SeriousPage({ frontmatter, content }) {
                             children: "📄 Read the original paper →"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/serious/[slug].tsx",
-                            lineNumber: 43,
+                            lineNumber: 46,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/serious/[slug].tsx",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -337,48 +338,69 @@ function SeriousPage({ frontmatter, content }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/pages/serious/[slug].tsx",
-                    lineNumber: 55,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/pages/serious/[slug].tsx",
-            lineNumber: 25,
+            lineNumber: 26,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/pages/serious/[slug].tsx",
-        lineNumber: 23,
+        lineNumber: 24,
         columnNumber: 5
     }, this);
 }
 const getStaticPaths = async ()=>{
-    const seriousDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/serious");
-    if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(seriousDir)) {
+    // Use English folder as the source of truth for which serious pieces exist
+    const seriousDirEn = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/serious/en");
+    if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(seriousDirEn)) {
         return {
             paths: [],
             fallback: false
         };
     }
-    const filenames = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readdirSync(seriousDir);
-    const paths = filenames.filter((filename)=>filename.endsWith(".md") || filename.endsWith(".mdx")).map((filename)=>({
-            params: {
-                slug: filename.replace(/\.mdx?$/, "")
-            }
-        }));
+    const filenames = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readdirSync(seriousDirEn).filter((filename)=>filename.endsWith(".md") || filename.endsWith(".mdx")).filter((filename)=>!filename.startsWith("_")); // in case you add templates
+    const locales = [
+        "en",
+        "zh"
+    ];
+    const paths = filenames.flatMap((filename)=>{
+        const slug = filename.replace(/\.mdx?$/, "");
+        return locales.map((locale)=>({
+                params: {
+                    slug
+                },
+                locale
+            }));
+    });
     return {
         paths,
         fallback: false
     };
 };
-const getStaticProps = async ({ params })=>{
+const getStaticProps = async ({ params, locale })=>{
     const slug = params?.slug;
-    const baseDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/serious");
+    const loc = locale || "en";
+    // 1. Try current locale folder first: content/serious/{locale}
+    const baseDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/serious", loc);
     const candidates = [
         __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(baseDir, `${slug}.md`),
         __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(baseDir, `${slug}.mdx`)
     ];
-    const filePath = candidates.find((p)=>__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(p));
+    let filePath = candidates.find((p)=>__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(p));
+    // 2. If not found and locale is not English, fall back to English file
+    if (!filePath && loc !== "en") {
+        const fallbackBase = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/serious", "en");
+        const fallbackCandidates = [
+            __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(fallbackBase, `${slug}.md`),
+            __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(fallbackBase, `${slug}.mdx`)
+        ];
+        filePath = fallbackCandidates.find((p)=>__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(p));
+    }
+    // 3. If still nothing, 404
     if (!filePath) {
         return {
             notFound: true

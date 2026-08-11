@@ -297,7 +297,7 @@ function CasePage({ frontmatter, content }) {
                                     verdict: frontmatter.verdict
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/cases/[slug].tsx",
-                                    lineNumber: 33,
+                                    lineNumber: 35,
                                     columnNumber: 13
                                 }, this),
                                 frontmatter.tags?.map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -305,13 +305,13 @@ function CasePage({ frontmatter, content }) {
                                         children: tag
                                     }, tag, false, {
                                         fileName: "[project]/src/pages/cases/[slug].tsx",
-                                        lineNumber: 35,
+                                        lineNumber: 37,
                                         columnNumber: 15
                                     }, this))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/cases/[slug].tsx",
-                            lineNumber: 31,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this),
                         frontmatter.paperLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("a", {
@@ -322,7 +322,7 @@ function CasePage({ frontmatter, content }) {
                             children: "📄 Read the original paper →"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/cases/[slug].tsx",
-                            lineNumber: 45,
+                            lineNumber: 47,
                             columnNumber: 13
                         }, this)
                     ]
@@ -338,7 +338,7 @@ function CasePage({ frontmatter, content }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/pages/cases/[slug].tsx",
-                    lineNumber: 57,
+                    lineNumber: 59,
                     columnNumber: 9
                 }, this)
             ]
@@ -354,36 +354,58 @@ function CasePage({ frontmatter, content }) {
     }, this);
 }
 const getStaticPaths = async ()=>{
-    const casesDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/cases");
-    if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(casesDir)) {
+    // We use English content as the source of truth for which slugs exist
+    const casesDirEn = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/cases/en");
+    if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(casesDirEn)) {
         return {
             paths: [],
             fallback: false
         };
     }
-    const filenames = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readdirSync(casesDir);
-    const paths = filenames.filter((f)=>f.endsWith(".md") || f.endsWith(".mdx")).filter((f)=>!f.startsWith("_")) // skip templates like _TEMPLATE.md
-    .map((f)=>({
-            params: {
-                slug: f.replace(/\.mdx?$/, "")
-            }
-        }));
+    const filenames = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readdirSync(casesDirEn).filter((f)=>f.endsWith(".md") || f.endsWith(".mdx")).filter((f)=>!f.startsWith("_")); // skip templates like _TEMPLATE.md
+    const locales = [
+        "en",
+        "zh"
+    ];
+    const paths = filenames.flatMap((file)=>{
+        const slug = file.replace(/\.mdx?$/, "");
+        return locales.map((locale)=>({
+                params: {
+                    slug
+                },
+                locale
+            }));
+    });
     return {
         paths,
         fallback: false
     };
 };
-const getStaticProps = async ({ params })=>{
+const getStaticProps = async ({ params, locale })=>{
     const slug = params?.slug;
-    const base = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/cases");
+    const loc = locale || "en";
+    // 1. Try to load from the current locale folder (en or zh)
+    const base = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/cases", loc);
     const candidates = [
         __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(base, `${slug}.md`),
         __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(base, `${slug}.mdx`)
     ];
-    const filePath = candidates.find((p)=>__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(p));
-    if (!filePath) return {
-        notFound: true
-    };
+    let filePath = candidates.find((p)=>__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(p));
+    // 2. If not found and we're not in English, fall back to English
+    if (!filePath && loc !== "en") {
+        const fallbackBase = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), "content/cases", "en");
+        const fallbackCandidates = [
+            __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(fallbackBase, `${slug}.md`),
+            __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(fallbackBase, `${slug}.mdx`)
+        ];
+        filePath = fallbackCandidates.find((p)=>__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(p));
+    }
+    // 3. If still nothing, 404
+    if (!filePath) {
+        return {
+            notFound: true
+        };
+    }
     const fileContent = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readFileSync(filePath, "utf-8");
     const { data: frontmatter, content: markdown } = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$gray$2d$matter__$5b$external$5d$__$28$gray$2d$matter$2c$__cjs$29$__["default"])(fileContent);
     const content = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$marked__$5b$external$5d$__$28$marked$2c$__esm_import$29$__["marked"])(markdown);

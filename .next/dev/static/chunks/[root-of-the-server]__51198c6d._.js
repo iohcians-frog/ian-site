@@ -698,6 +698,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/src/pages/serious/[slug].tsx [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+// src/pages/serious/[slug].tsx
 __turbopack_context__.s([
     "__N_SSG",
     ()=>__N_SSG,
@@ -724,7 +725,7 @@ function SeriousPage({ frontmatter, content }) {
                             children: frontmatter.title
                         }, void 0, false, {
                             fileName: "[project]/src/pages/serious/[slug].tsx",
-                            lineNumber: 28,
+                            lineNumber: 29,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -734,7 +735,7 @@ function SeriousPage({ frontmatter, content }) {
                                     verdict: frontmatter.verdict
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/serious/[slug].tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 34,
                                     columnNumber: 13
                                 }, this),
                                 frontmatter.tags?.map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -742,13 +743,13 @@ function SeriousPage({ frontmatter, content }) {
                                         children: tag
                                     }, tag, false, {
                                         fileName: "[project]/src/pages/serious/[slug].tsx",
-                                        lineNumber: 33,
+                                        lineNumber: 36,
                                         columnNumber: 15
                                     }, this))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/serious/[slug].tsx",
-                            lineNumber: 30,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this),
                         frontmatter.paperLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -759,13 +760,13 @@ function SeriousPage({ frontmatter, content }) {
                             children: "📄 Read the original paper →"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/serious/[slug].tsx",
-                            lineNumber: 43,
+                            lineNumber: 46,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/pages/serious/[slug].tsx",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -775,18 +776,18 @@ function SeriousPage({ frontmatter, content }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/pages/serious/[slug].tsx",
-                    lineNumber: 55,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/pages/serious/[slug].tsx",
-            lineNumber: 25,
+            lineNumber: 26,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/pages/serious/[slug].tsx",
-        lineNumber: 23,
+        lineNumber: 24,
         columnNumber: 5
     }, this);
 }

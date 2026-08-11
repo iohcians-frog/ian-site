@@ -26,7 +26,9 @@ export default function CasePage({ frontmatter, content }: CasePageProps) {
       <article className="mx-auto my-12 max-w-3xl rounded-2xl border bg-white p-8 shadow-sm">
         {/* Header */}
         <div className="mb-6 space-y-4">
-          <h1 className="text-4xl font-bold leading-tight">{frontmatter.title}</h1>
+          <h1 className="text-4xl font-bold leading-tight">
+            {frontmatter.title}
+          </h1>
 
           <div className="flex flex-wrap items-center gap-3">
             {/* shared pill with emoji */}
@@ -69,32 +71,65 @@ export default function CasePage({ frontmatter, content }: CasePageProps) {
   );
 }
 
-/* ---------- SSG ---------- */
+/* ---------- SSG WITH i18n ---------- */
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const casesDir = path.join(process.cwd(), "content/cases");
-  if (!fs.existsSync(casesDir)) {
+  // We use English content as the source of truth for which slugs exist
+  const casesDirEn = path.join(process.cwd(), "content/cases/en");
+
+  if (!fs.existsSync(casesDirEn)) {
     return { paths: [], fallback: false };
   }
 
-  const filenames = fs.readdirSync(casesDir);
-  const paths = filenames
+  const filenames = fs
+    .readdirSync(casesDirEn)
     .filter((f) => (f.endsWith(".md") || f.endsWith(".mdx")))
-    .filter((f) => !f.startsWith("_")) // skip templates like _TEMPLATE.md
-    .map((f) => ({
-      params: { slug: f.replace(/\.mdx?$/, "") },
-    }));
+    .filter((f) => !f.startsWith("_")); // skip templates like _TEMPLATE.md
+
+  const locales = ["en", "zh"] as const;
+
+  const paths =
+    filenames.flatMap((file) => {
+      const slug = file.replace(/\.mdx?$/, "");
+      return locales.map((locale) => ({
+        params: { slug },
+        locale,
+      }));
+    });
 
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<CasePageProps> = async ({
+  params,
+  locale,
+}) => {
   const slug = params?.slug as string;
-  const base = path.join(process.cwd(), "content/cases");
-  const candidates = [path.join(base, `${slug}.md`), path.join(base, `${slug}.mdx`)];
+  const loc = (locale as string) || "en";
 
-  const filePath = candidates.find((p) => fs.existsSync(p));
-  if (!filePath) return { notFound: true };
+  // 1. Try to load from the current locale folder (en or zh)
+  const base = path.join(process.cwd(), "content/cases", loc);
+  const candidates = [
+    path.join(base, `${slug}.md`),
+    path.join(base, `${slug}.mdx`),
+  ];
+
+  let filePath = candidates.find((p) => fs.existsSync(p));
+
+  // 2. If not found and we're not in English, fall back to English
+  if (!filePath && loc !== "en") {
+    const fallbackBase = path.join(process.cwd(), "content/cases", "en");
+    const fallbackCandidates = [
+      path.join(fallbackBase, `${slug}.md`),
+      path.join(fallbackBase, `${slug}.mdx`),
+    ];
+    filePath = fallbackCandidates.find((p) => fs.existsSync(p));
+  }
+
+  // 3. If still nothing, 404
+  if (!filePath) {
+    return { notFound: true };
+  }
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data: frontmatter, content: markdown } = matter(fileContent);
@@ -107,7 +142,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       typeof frontmatter.date === "string"
         ? frontmatter.date
         : frontmatter.date?.toISOString?.() || "",
-  };
+  } as CasePageProps["frontmatter"];
 
   return {
     props: {

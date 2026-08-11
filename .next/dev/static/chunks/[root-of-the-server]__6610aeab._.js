@@ -735,7 +735,7 @@ function CasePage({ frontmatter, content }) {
                                     verdict: frontmatter.verdict
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/cases/[slug].tsx",
-                                    lineNumber: 33,
+                                    lineNumber: 35,
                                     columnNumber: 13
                                 }, this),
                                 frontmatter.tags?.map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -743,13 +743,13 @@ function CasePage({ frontmatter, content }) {
                                         children: tag
                                     }, tag, false, {
                                         fileName: "[project]/src/pages/cases/[slug].tsx",
-                                        lineNumber: 35,
+                                        lineNumber: 37,
                                         columnNumber: 15
                                     }, this))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/cases/[slug].tsx",
-                            lineNumber: 31,
+                            lineNumber: 33,
                             columnNumber: 11
                         }, this),
                         frontmatter.paperLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -760,7 +760,7 @@ function CasePage({ frontmatter, content }) {
                             children: "📄 Read the original paper →"
                         }, void 0, false, {
                             fileName: "[project]/src/pages/cases/[slug].tsx",
-                            lineNumber: 45,
+                            lineNumber: 47,
                             columnNumber: 13
                         }, this)
                     ]
@@ -776,7 +776,7 @@ function CasePage({ frontmatter, content }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/pages/cases/[slug].tsx",
-                    lineNumber: 57,
+                    lineNumber: 59,
                     columnNumber: 9
                 }, this)
             ]
