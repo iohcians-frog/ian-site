@@ -13,9 +13,11 @@ summary: A mathematical model, some very warm arms, and one spectacular journey
   from “sun heats skin” to cancer hyperthermia.
 paperLink: https://srcpublishers.com/oncology-research-reviews-report/article/view/7114?utm_source=chatgpt.com
 ---
-![IAN frog overheating at the beach](skin-cancer.png)
+<div align="center">
+  <img src="/skin-cancer.png" alt="IAN frog overheating at the beach" width="300" />
+</div>
 
-<hr />
+---
 
 **Disclaimer:** Not medical advice — and definitely not a recommendation to treat cancer by standing outside.
 
