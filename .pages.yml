@@ -1,0 +1,138 @@
+media:
+  - name: article_images
+    label: Article images
+    input: public/uploads
+    output: /uploads
+    extensions: [png, jpg, jpeg, webp, gif]
+    rename: safe
+
+content:
+  - name: cases
+    label: Questionable Purpose
+    type: collection
+    path: content/cases
+    format: yaml-frontmatter
+    filename: "{title}.md"
+    subfolders: false
+    view:
+      fields: [title, date, verdict, field]
+      primary: title
+      sort: [date, title]
+      search: [title, summary, field, tags]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: verdict
+        label: Verdict
+        type: select
+        required: true
+        options:
+          values:
+            - name: genius
+              label: Genius curiosity
+            - name: nice-demo
+              label: Nice demo
+            - name: over-engineered
+              label: Over-engineered
+            - name: elegant
+              label: Elegant nonsense
+      - name: field
+        label: Field
+        type: string
+        description: Optional for old posts. If blank, IAN uses the first tag as the field.
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: summary
+        label: Short summary
+        type: text
+        required: true
+      - name: paperLink
+        label: Original paper link
+        type: string
+      - name: body
+        label: Article
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: article_images
+          rename: safe
+
+  - name: serious
+    label: Serious Science
+    type: collection
+    path: content/serious
+    format: yaml-frontmatter
+    filename: "{title}.md"
+    subfolders: false
+    view:
+      fields: [title, date, verdict, field]
+      primary: title
+      sort: [date, title]
+      search: [title, summary, field, tags]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: verdict
+        label: Verdict
+        type: select
+        required: true
+        options:
+          values:
+            - name: calm-down
+              label: Calm down
+            - name: caution
+              label: Caution
+            - name: red-flag
+              label: Red flag
+            - name: overhyped
+              label: Overhyped
+      - name: field
+        label: Field
+        type: string
+        description: Main field used by the website filter.
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: summary
+        label: Short summary
+        type: text
+        required: true
+      - name: paperLink
+        label: Original paper link
+        type: string
+      - name: body
+        label: Article
+        type: rich-text
+        options:
+          format: markdown
+          switcher: true
+          media: article_images
+          rename: safe

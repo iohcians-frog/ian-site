@@ -3,6 +3,7 @@ slug: ml-candle
 title: Machine Learning Predicts Candle Burn Rate
 verdict: over-engineered
 tags: [Data Science, Machine Learning]
+field: Machine Learning
 date: 2025-01-05
 summary: AI rediscovers linear regression, claims victory over candles.
 paperLink: https://doi.org/example-ml-candle

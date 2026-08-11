@@ -1,13 +1,13 @@
-// src/components/CaseCard.tsx
 import Link from "next/link";
 import VerdictBadge from "./VerdictBadge";
-import { CaseFile } from "@/data/cases";
-import { SeriousMetadata } from "@/data/serious";
 
-// Accept either type, but only require the shared fields
-type CardItem =
-  | Pick<CaseFile, "slug" | "title" | "verdict" | "field" | "summary">
-  | Pick<SeriousMetadata, "slug" | "title" | "verdict" | "field" | "summary">;
+export interface CardItem {
+  slug: string;
+  title: string;
+  verdict: string;
+  field: string;
+  summary: string;
+}
 
 export default function CaseCard({
   item,
