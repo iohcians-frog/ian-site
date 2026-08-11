@@ -13,6 +13,9 @@ summary: A mathematical model, some very warm arms, and one spectacular journey
   from “sun heats skin” to cancer hyperthermia.
 paperLink: https://srcpublishers.com/oncology-research-reviews-report/article/view/7114?utm_source=chatgpt.com
 ---
+![Frog wearing sunglasses on a beach yelling "Hot"](Skin Cancer.png)
+
+---
 **Disclaimer:** Not medical advice — and definitely not a recommendation to treat cancer by standing outside.
 
 ## TL;DR
