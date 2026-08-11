@@ -8,7 +8,7 @@ media:
 
 content:
   - name: cases
-    label: Questionable Purpose
+    label: Seriously?
     type: collection
     path: content/cases
     format: yaml-frontmatter
@@ -73,7 +73,7 @@ content:
           rename: safe
 
   - name: serious
-    label: Serious Science
+    label: Serious
     type: collection
     path: content/serious
     format: yaml-frontmatter
