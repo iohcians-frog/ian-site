@@ -71,6 +71,15 @@ function cardTags(item: ContentMetadata): string[] {
   return Array.from(new Set([item.field, ...(item.tags ?? [])])).filter(Boolean);
 }
 
+function homepageItems<T>(items: T[]): T[] {
+  if (items.length <= 1) return items;
+
+  const max = Math.min(items.length, 8);
+  const count = max % 2 === 0 ? max : max - 1;
+
+  return items.slice(0, count);
+}
+
 interface HomeProps {
   cases: ContentMetadata[];
   serious: ContentMetadata[];
@@ -116,7 +125,7 @@ export default function Home({ cases, serious }: HomeProps) {
           Every paper here meant well.
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {cases.slice(0, 3).map((item) => (
+          {homepageItems(cases).map((item) => (
             <HomeCard
               key={item.slug}
               href={`/cases/${item.slug}`}
@@ -166,7 +175,7 @@ export default function Home({ cases, serious }: HomeProps) {
           science. We read the papers so you don’t have to.
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {serious.slice(0, 2).map((item) => (
+          {homepageItems(serious).map((item) => (
             <HomeCard
               key={item.slug}
               href={`/serious/${item.slug}`}
