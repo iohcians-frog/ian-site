@@ -1,23 +1,13 @@
 {
   "version": 4,
   "routes": {
-    "/serious/tylenol-pregnancy": {
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/serious/[slug]",
-      "dataRoute": "/_next/data/mY830ZG44HFC2SehkYprn/serious/tylenol-pregnancy.json",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/cases/graphs-persuasion": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/mY830ZG44HFC2SehkYprn/cases/graphs-persuasion.json",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/graphs-persuasion.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -28,9 +18,12 @@
       ]
     },
     "/cases/microwave-regen": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/mY830ZG44HFC2SehkYprn/cases/microwave-regen.json",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/microwave-regen.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -41,9 +34,12 @@
       ]
     },
     "/cases/ml-candle": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/mY830ZG44HFC2SehkYprn/cases/ml-candle.json",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/ml-candle.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -54,9 +50,44 @@
       ]
     },
     "/cases/test-case": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
       "initialRevalidateSeconds": false,
       "srcRoute": "/cases/[slug]",
-      "dataRoute": "/_next/data/mY830ZG44HFC2SehkYprn/cases/test-case.json",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/test-case.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/serious/opioids-silent-dependence": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/serious/[slug]",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/serious/opioids-silent-dependence.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/serious/tylenol-pregnancy": {
+      "routeType": "page",
+      "response": "complete",
+      "compute": "static",
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/serious/[slug]",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/serious/tylenol-pregnancy.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -68,11 +99,11 @@
     }
   },
   "dynamicRoutes": {
-    "/serious/[slug]": {
-      "routeRegex": "^/serious/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/mY830ZG44HFC2SehkYprn/serious/[slug].json",
+    "/cases/[slug]": {
+      "routeRegex": "^/cases/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/[slug].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/mY830ZG44HFC2SehkYprn/serious/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -82,11 +113,11 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/cases/[slug]": {
-      "routeRegex": "^/cases/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/mY830ZG44HFC2SehkYprn/cases/[slug].json",
+    "/serious/[slug]": {
+      "routeRegex": "^/serious/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/euHaNDPVBFc_EcxWi9AkK/serious/[slug].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/mY830ZG44HFC2SehkYprn/cases/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/euHaNDPVBFc_EcxWi9AkK/serious/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -99,8 +130,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "a7e6d12e382bbd90883358d8f8950acb",
-    "previewModeSigningKey": "b045ddc6cdad16411bfb822d35348a8592aaa58635da67dfc1bbc363a4e571bb",
-    "previewModeEncryptionKey": "6b6b8e45d0e150df8db613c6430fe2ddf6c41e41e4832f7fd57e21f0db7e3830"
+    "previewModeId": "838a18c406ad02570b45d6d89d196525",
+    "previewModeSigningKey": "7017370462044eccc47d64f7d3022d04bdb28c8982c26e4a0a178cd5726a3784",
+    "previewModeEncryptionKey": "ed0d003f70e78ed639086094f26ed7f504ee8771353b067a6fc0d7bb2c5ee116"
   }
 }

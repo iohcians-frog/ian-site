@@ -1,6 +1,0 @@
-__turbopack_load_page_chunks__("/manifesto", [
-  "static/chunks/b1b128bac469b592.js",
-  "static/chunks/807ea5e9e376ef36.js",
-  "static/chunks/932a1f893e9592b3.js",
-  "static/chunks/turbopack-8847bdd3a4abaf76.js"
-])

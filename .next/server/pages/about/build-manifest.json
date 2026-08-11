@@ -6,11 +6,14 @@
   "rootMainFiles": [],
   "pages": {
     "/about": [
-      "static/chunks/5019feb112598ab6.js",
-      "static/chunks/807ea5e9e376ef36.js",
-      "static/chunks/932a1f893e9592b3.js",
-      "static/chunks/turbopack-ebf498c3aaf40692.js"
+      "static/chunks/3nfb8pq6ccms1.js",
+      "static/chunks/3qjv-uqkvc7ih.js",
+      "static/chunks/1emyeuep-i0kv.js",
+      "static/chunks/turbopack-31katbq_7_g6m.js"
     ]
   },
-  "ampFirstPages": []
+  "ampFirstPages": [],
+  "rootMainFilesTree": {},
+  "pagesChunkGroupBootstrapParams": {},
+  "chunkLoadingGlobal": "TURBOPACK"
 }

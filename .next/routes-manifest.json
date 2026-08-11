@@ -1,50 +1,23 @@
 {
   "version": 3,
   "pages404": true,
+  "appType": "pages",
   "caseSensitive": false,
-  "basePath": "/ian-site",
+  "basePath": "",
   "redirects": [
     {
-      "source": "/ian-site",
-      "destination": "/ian-site/",
-      "basePath": false,
+      "source": "/:path+/",
+      "destination": "/:path+",
       "internal": true,
       "priority": true,
       "statusCode": 308,
-      "regex": "^/ian-site$"
-    },
-    {
-      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
-      "destination": "/:file",
-      "internal": true,
-      "priority": true,
-      "missing": [
-        {
-          "type": "header",
-          "key": "x-nextjs-data"
-        }
-      ],
-      "statusCode": 308,
-      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
-    },
-    {
-      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
-      "destination": "/:notfile/",
-      "internal": true,
-      "priority": true,
-      "statusCode": 308,
-      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
     }
   ],
   "headers": [],
+  "onMatchHeaders": [],
   "rewrites": {
-    "beforeFiles": [
-      {
-        "source": "/ian-site//_next/:path+",
-        "destination": "/ian-site/_next/:path+",
-        "regex": "^/ian-site//_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
-      }
-    ],
+    "beforeFiles": [],
     "afterFiles": [],
     "fallback": []
   },
@@ -104,16 +77,16 @@
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/mY830ZG44HFC2SehkYprn/cases/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/mY830ZG44HFC2SehkYprn/cases/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/euHaNDPVBFc_EcxWi9AkK/cases/(?<nxtPslug>[^/]+?)\\.json$"
     },
     {
       "page": "/serious/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/mY830ZG44HFC2SehkYprn/serious/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/mY830ZG44HFC2SehkYprn/serious/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/euHaNDPVBFc_EcxWi9AkK/serious/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/euHaNDPVBFc_EcxWi9AkK/serious/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {
@@ -123,7 +96,6 @@
     "didPostponeHeader": "x-nextjs-postponed",
     "contentTypeHeader": "text/x-component",
     "suffix": ".rsc",
-    "prefetchSuffix": ".prefetch.rsc",
     "prefetchSegmentHeader": "next-router-segment-prefetch",
     "prefetchSegmentSuffix": ".segment.rsc",
     "prefetchSegmentDirSuffix": ".segments",
