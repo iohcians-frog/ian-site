@@ -3,7 +3,6 @@ slug: graphs-persuasion
 title: Trivial Graphs & Formulas Make Ads More Persuasive
 verdict: nice-demo
 tags: [Communication, Psychology]
-field: Psychology
 date: 2025-01-08
 summary: Peer-reviewed proof that people trust sciencey-looking things.
 paperLink: https://doi.org/example-graphs

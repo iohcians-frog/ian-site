@@ -1,10 +1,6 @@
 import Link from "next/link";
-import type { GetStaticProps } from "next";
+import { serious } from "@/data/serious";
 import Layout from "@/components/Layout";
-import {
-  getCollectionMetadata,
-  type ContentMetadata,
-} from "@/lib/content";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -14,7 +10,7 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
-function HomeCard({
+function CaseCard({
   href,
   title,
   tags,
@@ -37,46 +33,25 @@ function HomeCard({
         <div className="shrink-0">{verdict}</div>
       </div>
       <div className="mt-3 flex flex-wrap gap-2 text-slate-600">
-        {tags.map((tag) => (
-          <Pill key={tag}>{tag}</Pill>
+        {tags.map((t) => (
+          <Pill key={t}>{t}</Pill>
         ))}
       </div>
     </Link>
   );
 }
 
-function caseVerdictPill(verdict: string) {
-  const map: Record<string, string> = {
-    genius: "🧠 Genius curiosity",
-    "nice-demo": "🪄 Nice demo",
-    "over-engineered": "🧰 Over-engineered",
-    elegant: "🧪 Elegant nonsense",
-  };
-
-  return <Pill>{map[verdict] ?? "🧪 Research"}</Pill>;
-}
-
-function seriousVerdictPill(verdict: string) {
+function seriousVerdictPill(v: string) {
   const map: Record<string, string> = {
     "calm-down": "🧊 Calm down",
     caution: "⚠️ Caution",
     "red-flag": "🚩 Red flag",
     overhyped: "🎈 Overhyped",
   };
-
-  return <Pill>{map[verdict] ?? "🧪 Science"}</Pill>;
+  return <Pill>{map[v] ?? "🧪 Science"}</Pill>;
 }
 
-function cardTags(item: ContentMetadata): string[] {
-  return Array.from(new Set([item.field, ...(item.tags ?? [])])).filter(Boolean);
-}
-
-interface HomeProps {
-  cases: ContentMetadata[];
-  serious: ContentMetadata[];
-}
-
-export default function Home({ cases, serious }: HomeProps) {
+export default function Home() {
   return (
     <Layout>
       {/* Hero */}
@@ -116,16 +91,30 @@ export default function Home({ cases, serious }: HomeProps) {
           Every paper here meant well.
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {cases.slice(0, 3).map((item) => (
-            <HomeCard
-              key={item.slug}
-              href={`/cases/${item.slug}`}
-              title={item.title}
-              verdict={caseVerdictPill(item.verdict)}
-              tags={cardTags(item)}
-            />
-          ))}
+          <CaseCard
+            href="/cases/microwave-regen"
+            title="Microwave-Assisted Regeneration of Activated Carbon"
+            verdict={<Pill>🧪 Elegant nonsense</Pill>}
+            tags={[
+              "Environmental Engineering",
+              "Technically hot, practically not.",
+            ]}
+          />
+          <CaseCard
+            href="/cases/graphs-persuasion"
+            title="Trivial Graphs & Formulas Make Ads More Persuasive"
+            verdict={<Pill>🪄 Nice demo</Pill>}
+            tags={["Communication / Psych", "Peer-reviewed, duh."]}
+          />
+          <CaseCard
+            href="/cases/ml-candle"
+            title="Machine Learning Predicts Candle Burn Rate"
+            verdict={<Pill>🧰 Over-engineered</Pill>}
+            tags={["Data Science", "AI rediscovers linear regression."]}
+          />
         </div>
+
+        {/* tighter balanced spacing */}
         <div className="mt-4 mb-4">
           <Link href="/cases" className="text-slate-800 underline">
             Browse all cases →
@@ -154,6 +143,7 @@ export default function Home({ cases, serious }: HomeProps) {
         </p>
       </section>
 
+      {/* Divider — slightly thicker, tighter */}
       <hr className="mx-auto max-w-5xl border-t-[1.5px] border-slate-200 my-5" />
 
       {/* Serious Science */}
@@ -165,17 +155,19 @@ export default function Home({ cases, serious }: HomeProps) {
           Mini plain-language reviews of hot, controversial, or overhyped
           science. We read the papers so you don’t have to.
         </p>
+
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {serious.slice(0, 2).map((item) => (
-            <HomeCard
-              key={item.slug}
-              href={`/serious/${item.slug}`}
-              title={item.title}
-              verdict={seriousVerdictPill(item.verdict)}
-              tags={cardTags(item)}
+          {serious.slice(0, 2).map((s) => (
+            <CaseCard
+              key={s.slug}
+              href={`/serious/${s.slug}`}
+              title={s.title}
+              verdict={seriousVerdictPill(s.verdict)}
+              tags={[s.field, ...(s.tags ?? [])]}
             />
           ))}
         </div>
+
         <div className="mt-4 mb-4">
           <Link href="/serious" className="text-slate-800 underline">
             Browse all reviews →
@@ -213,12 +205,3 @@ export default function Home({ cases, serious }: HomeProps) {
     </Layout>
   );
 }
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  return {
-    props: {
-      cases: getCollectionMetadata("cases"),
-      serious: getCollectionMetadata("serious"),
-    },
-  };
-};

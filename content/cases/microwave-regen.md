@@ -3,7 +3,6 @@ slug: microwave-regen
 title: Microwave-Assisted Regeneration of Activated Carbon
 verdict: elegant
 tags: [Environmental Engineering, Energy]
-field: Environmental Engineering
 date: 2025-01-10
 summary: Technically works. Practically... no one will do this.
 paperLink: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Microwave+Regeneration+of+Activated+Carbon&btnG=
