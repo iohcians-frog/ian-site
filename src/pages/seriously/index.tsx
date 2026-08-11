@@ -49,7 +49,7 @@ export default function Cases({ all, fields }: CasesProps) {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {filtered.map((item) => (
-            <CaseCard key={item.slug} item={item} basePath="/cases" />
+            <CaseCard key={item.slug} item={item} basePath="/seriously" />
           ))}
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function Cases({ all, fields }: CasesProps) {
 }
 
 export const getStaticProps: GetStaticProps<CasesProps> = async () => {
-  const all = getCollectionMetadata("cases");
+  const all = getCollectionMetadata("seriously");
 
   return {
     props: {

@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export type ContentCollection = "cases" | "serious";
+export type ContentCollection = "seriously" | "serious";
 
 export interface ContentMetadata {
   slug: string;

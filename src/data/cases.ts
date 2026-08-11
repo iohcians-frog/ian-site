@@ -1,5 +1,5 @@
 // Metadata for all cases - used for listings and navigation
-// Full content is in /content/cases/*.md files
+// Full content is in /content/seriously/*.md files
 
 export interface CaseMetadata {
   slug: string;

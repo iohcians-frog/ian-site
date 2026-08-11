@@ -7,10 +7,10 @@ media:
     rename: safe
 
 content:
-  - name: cases
+  - name: seriously
     label: Seriously?
     type: collection
-    path: content/cases
+    path: content/seriously
     format: yaml-frontmatter
     filename: "{title}.md"
     subfolders: false

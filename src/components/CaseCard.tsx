@@ -11,7 +11,7 @@ export interface CardItem {
 
 export default function CaseCard({
   item,
-  basePath = "/cases",
+  basePath = "/seriously",
 }: {
   item: CardItem;
   basePath?: string;

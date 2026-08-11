@@ -128,7 +128,7 @@ export default function Home({ cases, serious }: HomeProps) {
           {homepageItems(cases).map((item) => (
             <HomeCard
               key={item.slug}
-              href={`/cases/${item.slug}`}
+              href={`/seriously/${item.slug}`}
               title={item.title}
               verdict={caseVerdictPill(item.verdict)}
               tags={cardTags(item)}
@@ -136,7 +136,7 @@ export default function Home({ cases, serious }: HomeProps) {
           ))}
         </div>
         <div className="mt-4 mb-4">
-          <Link href="/cases" className="text-slate-800 underline">
+          <Link href="/seriously" className="text-slate-800 underline">
             Browse all cases →
           </Link>
         </div>
@@ -226,7 +226,7 @@ export default function Home({ cases, serious }: HomeProps) {
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return {
     props: {
-      cases: getCollectionMetadata("cases"),
+      cases: getCollectionMetadata("seriously"),
       serious: getCollectionMetadata("serious"),
     },
   };

@@ -1,4 +1,4 @@
-// src/pages/cases/[slug].tsx
+// src/pages/seriously/[slug].tsx
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -72,7 +72,7 @@ export default function CasePage({ frontmatter, content }: CasePageProps) {
 /* ---------- SSG ---------- */
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const casesDir = path.join(process.cwd(), "content/cases");
+  const casesDir = path.join(process.cwd(), "content/seriously");
   if (!fs.existsSync(casesDir)) {
     return { paths: [], fallback: false };
   }
@@ -90,7 +90,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
-  const base = path.join(process.cwd(), "content/cases");
+  const base = path.join(process.cwd(), "content/seriously");
   const candidates = [path.join(base, `${slug}.md`), path.join(base, `${slug}.mdx`)];
 
   const filePath = candidates.find((p) => fs.existsSync(p));
